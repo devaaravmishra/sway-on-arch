@@ -62,29 +62,29 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#1d1f21'
-    foreground: '#c5c8c6'
+    background: '#171717'
+    foreground: '#ffffff'
 
   # Normal colors
   normal:
-    black:   '#1d1f21'
-    red:     '#cc6666'
-    green:   '#b5bd68'
-    yellow:  '#f0c674'
-    blue:    '#81a2be'
-    magenta: '#b294bb'
-    cyan:    '#8abeb7'
-    white:   '#c5c8c6'
+    black:   '#000000'
+    pink:    '#e356a7'
+    green:   '#42e66c'
+    yellow:  '#e4f34a'
+    blue:    '#9a91ff'
+    orange:  '#e64747'
+    cyan:    '#75d7ec'
+    white:   '#fafafa'
 
   # Bright colors
   bright:
     black:   '#666666'
-    red:     '#d54e53'
-    green:   '#b9ca4a'
-    yellow:  '#e7c547'
-    blue:    '#7aa6da'
-    magenta: '#c397d8'
-    cyan:    '#70c0b1'
+    pink:    '#ff79c6'
+    green:   '#50fa7b'
+    yellow:  '#f1fa8c'
+    blue:    '#b897ff'
+    magenta: '#ff5555'
+    cyan:    '#8be9fd'
     white:   '#eaeaea'
 
 # Background opacity
@@ -100,7 +100,7 @@ colors:
     # Cursor shape
     # Values for `shape`:
     #   - ▇ Block
-    #   - _ Underline
+    #  - _ Underline
     #   - | Beam
     shape: Block
 
