@@ -16,33 +16,33 @@ font:
   normal:
     # Font family
     
-    family: CascadiaCode
+    family: UbuntuMono
     # The `style` can be specified to pick a specific face.
     style: Regular
 
   # Bold font face
   bold:
     # Font family
-    family: CascadiaCode
+    family: UbuntuMono
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
     # Font family
-    family: CascadiaCode
+    family: UbuntuMono
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Bold italic font face
   bold_italic:
     # Font family
-    family: CascadiaCode
+    family: UbuntuMono
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Foint size
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
