@@ -9,6 +9,9 @@
 gaps inner 10
 gaps outer 5
 
+# Disable window title bar
+default_border pixel 2
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -24,7 +27,7 @@ set $term alacritty
 set $menu wofi --show run
 
 #font configuration
-font pango: Ubuntu:style=Regular 10
+font pango: Ubuntu:style=Regular 10:
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -206,17 +209,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+	swaybar_command waybar
     }
-}
 
 include /etc/sway/config.d/*
