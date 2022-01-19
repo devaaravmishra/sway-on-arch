@@ -21,7 +21,7 @@
      },
     
     "memory": {
-         "format": "\t{}%"
+         "format": "{}%"
      },
     
     "bluetooth": {
@@ -41,7 +41,7 @@
     },
     
     "clock": {
-        "format": "{:%a   %b  %e   %H:%M}",
+        "format": "{:%a %b %e %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
         "today-format": "<b>{}</b>",
         "on-click": "gnome-calendar"
@@ -60,7 +60,7 @@
     },
     "pulseaudio": {
         "scroll-step": 3, // %, can be a float
-        "format": "{icon}\t{volume}%",
+        "format": "{icon}{volume}%",
         "format-bluetooth": "{volume}% {icon}{format_source}",
         "format-bluetooth-muted": "{icon}{format_source}",
         "format-muted": "{format_source}",
