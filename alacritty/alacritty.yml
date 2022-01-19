@@ -112,3 +112,4 @@ colors:
     #   - On: Enable blinking by default
     #   - Always: Force the cursor to always blink
     blinking: Always
+    blinking_interval: 750
