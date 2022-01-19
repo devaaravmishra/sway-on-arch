@@ -21,7 +21,7 @@
      },
     
     "memory": {
-         "format": "{}%"
+         "format": " {}%"
      },
     
     "bluetooth": {
@@ -60,7 +60,7 @@
     },
     "pulseaudio": {
         "scroll-step": 3, // %, can be a float
-        "format": "{icon}{volume}%",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}% {icon}{format_source}",
         "format-bluetooth-muted": "{icon}{format_source}",
         "format-muted": "{format_source}",
