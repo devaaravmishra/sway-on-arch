@@ -9,9 +9,6 @@
 gaps inner 10
 gaps outer 5
 
-# Disable window title bar
-default_border pixel 2
-
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
