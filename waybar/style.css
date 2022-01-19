@@ -44,10 +44,7 @@
 @define-color sound #EBCB8B;
 @define-color network #5D7096;
 @define-color memory #546484;
-@define-color cpu #596A8D;
-@define-color temp #4D5C78;
 @define-color layout #5e81ac;
-@define-color battery #88c0d0;
 @define-color date #434C5E;
 @define-color time #434C5E;
 @define-color backlight #434C5E;
@@ -67,106 +64,71 @@
 
 /* The whole bar */
 #waybar {
-    background: @bg;
+    background-color:transparent;
     color: @light;
-    font-family:  "Font Awesome 5 Pro","Cantarell";
-    font-size: 16px;
+    font-family:  "Ubuntu Mono","Cantarell";
+    font-size: 14px;
     font-weight: bold;
 }
 
 /* Each module */
 #battery,
 #clock,
-#cpu,
 #custom-layout,
 #memory,
-#mode,
 #network,
 #pulseaudio,
-#temperature,
-#custom-alsa,
-#custom-pacman,
-#custom-weather,
-#custom-gpu,
 #tray,
-#backlight,
-#language,
-#custom-cpugovernor {
+#backlight{
     padding-left: 0.6em;
     padding-right: 0.6em;
 }
 
 /* Each module that should blink */
-#mode,
-#memory,
-#temperature,
-#battery {
+#memory{
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
 
 /* Each critical module */
-#memory.critical,
-#cpu.critical,
-#temperature.critical,
-#battery.critical {
+#memory.critical{
     color: @critical;
 }
 
 /* Each critical that should blink */
-#mode,
-#memory.critical,
-#temperature.critical,
-#battery.critical.discharging {
+#memory.critical{
     animation-name: blink-critical;
     animation-duration: 2s;
 }
 
 /* Each warning */
 #network.disconnected,
-#memory.warning,
-#cpu.warning,
-#temperature.warning,
-#battery.warning {
+#memory.warning{
     background: @warning;
     color: @nord_dark_font;
 }
 
-/* Each warning that should blink */
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
 
 /* And now modules themselves in their respective order */
 
-#mode { /* Shown current Sway mode (resize etc.) */
-    color: @light;
-    background: @mode;
-}
 
 /* Workspaces stuff */
 
 #workspaces {
- /*   color: #D8DEE9;
+ /* color: #D8DEE9;
     margin-right: 10px;*/
 }
 
 #workspaces button {
     font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
     padding: 0;
-    /*color: #999;*/
-    opacity: 0.3;
-    background: none;
-    font-size: 1em;
+    color: green;
+    font-size: 1.1em;
 }
 
 #workspaces button.focused {
-    background: @workspacesfocused;
-    color: #D8DEE9;
-    opacity: 1;
-    padding: 0 0.4em;
+    color:pink;
 }
 
 #workspaces button.urgent {
@@ -186,34 +148,7 @@
     font-weight: bold;
     padding: 0 0.6em;
 }
-#custom-gpu {
-    background: @nord_bg;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#custom-weather {
-    background: @mode;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#custom-pacman {
-    background: @nord_light;
-    color: @nord_dark_font;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#custom-scratchpad-indicator {
-    background: @nord_light;
-    color: @nord_dark_font;
-    font-weight: bold;
-    padding: 0 0.6em;
-}
-#idle_inhibitor {
-    background: @mode;
-    /*font-size: 1.6em;*/
-    font-weight: bold;
-    padding: 0 0.6em;
-}
+
 #custom-alsa {
     background: @sound;
 }
@@ -226,70 +161,28 @@
     background: @memory;
 }
 
-#cpu {
-    background: @nord_bg;
-    color: #D8DEE9;
-}
-#cpu.critical {
-    color: @nord_dark_font;
-}
-#language {
-    background: @nord_bg_blue;
-    color: #D8DEE9;
-    padding: 0 0.4em;
-}
-#custom-cpugovernor {
-    background-color: @nord_light;
-    color: @nord_dark_font;
-}
-#custom-cpugovernor.perf {
-    
-}
-#temperature {
-    background-color: @nord_bg;
-    color: #D8DEE9;
-}
-#temperature.critical {
-    background:  @critical;
-}
 #custom-layout {
     background: @layout;
-}
-
-#battery {
-    background: @battery;
-}
-
-#backlight {
-    background: @backlight;
 }
 
 #clock {
     background: @nord_bg_blue;
     color: #D8DEE9;
 }
-#clock.date {
-    background: @date;
-}
 
-#clock.time {
-    background: @mode;
-}
-
-#pulseaudio { /* Unsused but kept for those who needs it */
+#pulseaudio {
     background: @nord_bg_blue;
     color: #D8DEE9;
 }
 
 #pulseaudio.muted {
     background: #BF616A;
-    color: #BF616A;
-    /* No styles */
+    color: #BF616A
 }
+
 #pulseaudio.source-muted {
     background: #D08770;
     color: #D8DEE9;
-    /* No styles */
 }
 #tray {
     background: #434C5E;
