@@ -30,7 +30,7 @@ set $menu wofi --show run
 font pango: Ubuntu:style=Regular 10:
 
 # Default wallpaper
-output * bg /home/aaravconsole/Pictures/Wallpapers/wp6565099-minimalistic-scenery-wallpapers.png fill
+output * bg ~/Pictures/Wallpapers/wp6565099-minimalistic-scenery-wallpapers.png fill
 
 ### Idle configuration
 exec swayidle -w \
