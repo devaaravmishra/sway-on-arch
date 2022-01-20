@@ -31,7 +31,7 @@ font pango: Ubuntu:style=Regular 10:
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/aaravconsole/Pictures/Wallpapers/wp6565099-minimalistic-scenery-wallpapers.png fill
 #
 # Example configuration:
 #
