@@ -2,10 +2,14 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     
+    // Order of modules to render
     "modules-left": ["sway/workspaces",  "custom/media"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "memory", "pulseaudio", "bluetooth", "network"],
+    
     // Modules configuration
+    
+    //Workspaces Module
     "sway/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
@@ -17,10 +21,12 @@
          }
      },
     
+    // Memory Module
     "memory": {
          "format": " {}%"
      },
     
+    // Bluetooth Module
     "bluetooth": {
         "interval": 30,
         "format": "{icon}",
@@ -32,17 +38,20 @@
         "on-click": "blueberry"
     },    
     
+    // Module for application running
     "tray": {
         "spacing": 5
     },
     
+    // Clock Module
     "clock": {
         "format": "{:%a %b %e %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
         "today-format": "<b>{}</b>",
         "on-click": "gnome-calendar"
     },
-  
+    
+    // Network Module
     "network": {
         // "interface": "wlan0", // (Optional) To force the use of this interface,
         "format-wifi": "直",
@@ -54,6 +63,8 @@
         "tooltip-format-wifi": "直 @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\n {bandwidthUpBits}  {bandwidthDownBits}",
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}"
     },
+    
+    // Audio Module
     "pulseaudio": {
         "scroll-step": 3, // %, can be a float
         "format": "{icon} {volume}%",
@@ -71,6 +82,7 @@
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
     },
     
+    // Custom Module for playback
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
