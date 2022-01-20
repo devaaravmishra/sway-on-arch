@@ -1,8 +1,5 @@
 ### Variables
 
-# Disable window title bar
-default_border none
-
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -31,10 +28,20 @@ set $telegram telegram-desktop
 # Menu Wofi
 set $menu wofi --show run
 
-### Window
+### Window configuration
 # Set inner & outer gaps
 gaps inner 10
 gaps outer 5
+
+### Window borders
+
+# Disable window title bar
+default_border pixel 2
+
+# Window decoration
+# class            border   backgr.   text     indicator  child_border
+client.focused     #00ffff  #00ffff   #ffffff  #00ffff    #00ffff
+
 
 ### GTK Settings
 set $gnome-schema org.gnome.desktop.interface
