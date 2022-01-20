@@ -40,6 +40,13 @@ exec swayidle -w \
   		resume 'swaymsg "output * dpms on"' \
   	before-sleep 'swaylock -f'
 	
+
+### Toggle Keys Configuration
+
+#Initially enable NumLock
+input * xkb_numlock enable
+
+
 # Multimedia Keys
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -187,13 +194,9 @@ mode "resize" {
 }
 bindsym Ctrl+Shift+r mode "resize"
 
-#Initially enable NumLock
-input * xkb_numlock enable
 
-#
 # Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+
 bar {
 	swaybar_command waybar
     }
