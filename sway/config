@@ -63,6 +63,9 @@ exec swayidle -w \
   		resume 'swaymsg "output * dpms on"' \
   	before-sleep 'swaylock -f'
 	
+# Enables inhibit_idle when playing audio
+exec sway-audio-idle-inhibit
+
 
 ### Toggle Keys Configuration
 
