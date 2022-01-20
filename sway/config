@@ -35,11 +35,10 @@ output * bg ~/Pictures/Wallpapers/wp6565099-minimalistic-scenery-wallpapers.png 
 
 ### Idle configuration
 exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
-
-
+  	timeout 300 'swaylock -f' \
+  	timeout 600 'swaymsg "output * dpms off"' \
+  		resume 'swaymsg "output * dpms on"' \
+  	before-sleep 'swaylock -f'
 	
 # Multimedia Keys
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
