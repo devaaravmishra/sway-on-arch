@@ -176,7 +176,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym Ctrl+Shift+r mode "resize"
 
 #Initially enable NumLock
 input * xkb_numlock enable
