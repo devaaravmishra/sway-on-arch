@@ -204,6 +204,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+#Initially enable NumLock
+input * xkb_numlock enable
+
 #
 # Status Bar:
 #
