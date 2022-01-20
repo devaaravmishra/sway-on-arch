@@ -28,7 +28,7 @@ set $code code
 # Telegram
 set $telegram telegram-desktop
 
-# Your preferred application launcher
+# Menu Wofi
 set $menu wofi --show run
 
 ### Window
@@ -51,7 +51,8 @@ exec_always {
 ### Font configuration
 font pango: Ubuntu:style=Regular 10:
 
-# Default wallpaper
+
+### Wallpaper configuration
 output * bg ~/Pictures/Wallpapers/wp6565099-minimalistic-scenery-wallpapers.png fill
 
 
@@ -69,13 +70,14 @@ exec swayidle -w \
 input * xkb_numlock enable
 
 
-# Multimedia Keys
+### Multimedia Keys
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
 
 ### Key bindings
 
