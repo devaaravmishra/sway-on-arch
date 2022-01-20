@@ -124,6 +124,12 @@
     font-size:1.3em;
 }
 
+#network.format-disconnected{
+    background: rgba(255,255,255,0.2);
+    color:#42e66c;
+    font-size:1.3em;
+}
+
 #memory {
     background: rgba(255,255,255,0.2);
     color:#FFD700;
