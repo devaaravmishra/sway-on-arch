@@ -11,8 +11,22 @@ set $down j
 set $up k
 set $right l
 
-# Your preferred terminal emulator
+## Applications
+
+# Terminal 
 set $term alacritty
+
+# File Manager
+set $files thunar
+
+# Browser
+set $browser google-chrome-stable
+
+# VS Code
+set $code code
+
+# Telegram
+set $telegram telegram-desktop
 
 # Your preferred application launcher
 set $menu wofi --show run
