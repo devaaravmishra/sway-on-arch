@@ -66,6 +66,10 @@ exec swayidle -w \
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
 
+# Enable inhibit_idle when app is in fullscreen
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
+
 
 ### Toggle Keys Configuration
 
