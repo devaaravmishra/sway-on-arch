@@ -5,7 +5,7 @@
     // Order of modules to render
     "modules-left": ["sway/workspaces",  "custom/media"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "memory", "pulseaudio", "bluetooth", "network"],
+    "modules-right": ["tray", "memory", "pulseaudio", "network"],
     
     // Modules configuration
     
@@ -24,20 +24,8 @@
     // Memory Module
     "memory": {
          "format": " {}%"
-     },
-    
-    // Bluetooth Module
-    "bluetooth": {
-        "interval": 30,
-        "format": "{icon}",
-        //"format-alt": "{status}",
-        "format-icons": {
-            "enabled": "",
-            "disabled": ""
-        },
-        "on-click": "blueberry"
-    },    
-    
+     }, 
+
     // Module for application running
     "tray": {
         "spacing": 5
