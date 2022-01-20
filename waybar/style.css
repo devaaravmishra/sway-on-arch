@@ -108,51 +108,51 @@
     font-weight: normal;
 }
 #bluetooth {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
     color: #3399ff;
     font-size: 1.1em;
     padding: 0 0.6em;
 }
 
 #custom-alsa {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
 }
 
 #network {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
     color:#42e66c;
     font-size:1.3em;
 }
 
 #memory {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
     color:#FFD700;
 }
 
 #custom-layout {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
 }
 
 #clock {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
     padding:0.2em 0.6em 0.2em 0.6em;
     color: #00ffff;
 }
 
 #pulseaudio {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
     color: #ff80d5;
 }
 
 #pulseaudio.muted {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
     color: #FFFFFF
 }
 
 #pulseaudio.source-muted {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
     color: #ff80d5;
 }
 #tray {
-    background: #171717;
+    background: rgba(255,255,255,0.2);
 }
