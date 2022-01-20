@@ -22,7 +22,19 @@ set $menu wofi --show run
 gaps inner 10
 gaps outer 5
 
-# Font configuration
+### GTK Settings
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'paradise'
+    gsettings set $gnome-schema icon-theme 'breeze-extra-gnome'
+    gsettings set $gnome-schema font-name 'Ubuntu 11'
+    gsettings set $gnome-schema document-font-name 'Cascadia Code Regular 12'
+    gsettings set $gnome-schema monospace-font-name 'Ubuntu Mono 11'
+}
+
+
+### Font configuration
 font pango: Ubuntu:style=Regular 10:
 
 # Default wallpaper
