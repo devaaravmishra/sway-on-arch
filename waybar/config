@@ -65,10 +65,6 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
  	    "default": ["墳", "墳", "墳"]
         },
         "on-click": "pavucontrol",
