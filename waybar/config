@@ -57,7 +57,7 @@
         "format-wifi": "直",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "",
+        "format-disconnected": "睊",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "family": "ipv4",
         "tooltip-format-wifi": "直 @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\n {bandwidthUpBits}  {bandwidthDownBits}",
