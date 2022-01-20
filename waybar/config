@@ -1,10 +1,7 @@
 {
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    // "height": 36, // Waybar height (to be removed for auto height)
-    // Archived modules
-    // "custom/gpu", "bluetooth",  "custom/weather", "temperature", "sway/window"
-    // Choose the order of the modules
+    
     "modules-left": ["sway/workspaces",  "custom/media"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "memory", "pulseaudio", "bluetooth", "network"],
@@ -36,7 +33,6 @@
     },    
     
     "tray": {
-        //"icon-size": 11,
         "spacing": 5
     },
     
