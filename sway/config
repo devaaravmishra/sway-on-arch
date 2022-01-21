@@ -77,6 +77,8 @@ exec sway-audio-idle-inhibit
 for_window [class=".*"] inhibit_idle fullscreen
 for_window [app_id=".*"] inhibit_idle fullscreen
 
+# Pause any Playing Media before sleep
+before-sleep 'playerctl pause'
 
 ### Toggle Keys Configuration
 
