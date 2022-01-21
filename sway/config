@@ -43,6 +43,9 @@ default_border pixel 2
 client.focused     #00ffff  #00ffff   #ffffff  #00ffff    #00ffff
 
 
+# Autostart
+exec --no-startup-id mako
+
 ### GTK Settings
 set $gnome-schema org.gnome.desktop.interface
 
