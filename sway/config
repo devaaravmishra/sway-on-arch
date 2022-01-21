@@ -124,8 +124,12 @@ bindsym XF86AudioPrev exec playerctl previous
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m
+    bindsym $mod+Shift+e exec swaynag -t warning -m	
+
+    # Opens a window in Floating mode
+    # for_window [app_id="Alacritty"] floating enable
     
+    bindsym $mod+c exec for_window [app_id="Alacritty"] floating enable
 
 # Moving around:
 
