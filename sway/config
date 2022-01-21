@@ -26,7 +26,7 @@ set $code code
 set $telegram telegram-desktop
 
 # Menu Wofi
-set $menu wofi --show run
+set $menu wofi --run
 
 ### Window configuration
 # Set inner & outer gaps
