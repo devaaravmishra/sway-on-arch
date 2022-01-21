@@ -84,6 +84,7 @@ for_window [class=".*"] inhibit_idle fullscreen
 for_window [app_id=".*"] inhibit_idle fullscreen
 
 
+	
 ### Toggle Keys Configuration
 
 #Initially enable NumLock
@@ -124,6 +125,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m
+    
 
 # Moving around:
 
@@ -178,9 +180,11 @@ bindsym XF86AudioPrev exec playerctl previous
     # We just use 1-10 as the default.
     
     # Move windows to next workspace
-    bindsym $mod+Shift+Left move container to workspace prev; workspace prev
-    bindsym $mod+Shift+Right move container to workspace next; workspace next 
+    bindsym $mod+Control+Left move container to workspace prev; workspace prev
+    bindsym $mod+Control+Right move container to workspace next; workspace next
 
+    
+    
 # Layout stuff:
 
     # You can "split" the current object of your focus with
