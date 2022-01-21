@@ -71,7 +71,6 @@
 /* Each warning */
 #network.disconnected,
 #memory.warning{
-    background: rgba(255,255,255,0.2);
     color: #ebcb8b;
 }
 
@@ -107,51 +106,34 @@
     font-weight: normal;
 }
 
-#custom-alsa {
-    background: rgba(255,255,255,0.2);
-}
-
 #network {
-    background: rgba(255,255,255,0.2);
     color:#42e66c;
     font-size:1.3em;
 }
 
 #network.format-disconnected{
-    background: rgba(255,255,255,0.2);
     color:#42e66c;
     font-size:1.3em;
 }
 
 #memory {
-    background: rgba(255,255,255,0.2);
     color:#FFD700;
 }
 
-#custom-layout {
-    background: rgba(255,255,255,0.2);
-}
-
 #clock {
-    background: rgba(255,255,255,0.2);
     padding:0.2em 0.6em 0.2em 0.6em;
     color: #00ffff;
 }
 
 #pulseaudio {
-    background: rgba(255,255,255,0.2);
     color: #ff80d5;
 }
 
 #pulseaudio.muted {
-    background: rgba(255,255,255,0.2);
     color: #FFFFFF
 }
 
 #pulseaudio.source-muted {
-    background: rgba(255,255,255,0.2);
     color: #ff80d5;
 }
-#tray {
-    background: rgba(255,255,255,0.2);
-}
+
