@@ -77,11 +77,6 @@
 
 /* Workspaces stuff */
 
-#workspaces {
- /* color: #D8DEE9;
-    margin-right: 10px;*/
-}
-
 #workspaces button {
     font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
     padding: 0;
