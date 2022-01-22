@@ -27,7 +27,8 @@
          "format-icons": {
             "default": ""
          },
-         "interval": 1
+         "interval": 1,
+         "tooltip": false
      }, 
 
     // Module for application running
