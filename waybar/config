@@ -65,8 +65,7 @@
             "hands-free": "",
  	    "default": ["墳", "墳", "墳"]
         },
-        "on-click": "pavucontrol",
-        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        "on-click": "pavucontrol"
     },
     
     // Custom Module for playback
