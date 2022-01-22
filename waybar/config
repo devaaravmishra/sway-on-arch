@@ -21,9 +21,12 @@
          }
      },
     
-    // Memory Module
+   // Memory Module
     "memory": {
-         "format": " {}%"
+         "format": "<span font='13'>{icon}</span> {}%",
+         "format-icons": {
+            "default": ""
+         }
      }, 
 
     // Module for application running
