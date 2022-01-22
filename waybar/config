@@ -31,7 +31,8 @@
 
     // Module for application running
     "tray": {
-        "spacing": 5
+        "spacing": 5,
+        "icon-size":15
     },
     
     // Clock Module
