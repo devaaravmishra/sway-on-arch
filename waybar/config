@@ -51,8 +51,8 @@
         "format-disconnected": "睊",
         "format-alt": " {bandwidthUpBits}  {bandwidthDownBits}",
         "family": "ipv4",
-        "tooltip-format-wifi": "直  @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\n",
-        "tooltip-format-ethernet": " @ {essid}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}"
+        "tooltip-format-wifi": "直  @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%",
+        "tooltip-format-ethernet": " @ {essid}\nIP: {ipaddr}"
     },
     
     // Audio Module
