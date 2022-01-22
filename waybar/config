@@ -46,13 +46,13 @@
     "network": {
         // "interface": "wlan0", // (Optional) To force the use of this interface,
         "format-wifi": "直",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "睊",
         "format-alt": " {bandwidthUpBits}  {bandwidthDownBits}",
         "family": "ipv4",
         "tooltip-format-wifi": "直  @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\n",
-        "tooltip-format-ethernet": "{essid}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}"
+        "tooltip-format-ethernet": " @ {essid}\nIP: {ipaddr}\n {bandwidthUpBits}  {bandwidthDownBits}"
     },
     
     // Audio Module
