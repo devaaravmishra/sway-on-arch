@@ -72,7 +72,7 @@
     
     // Custom Module for playback
     "custom/media": {
-        "format": "{icon} {}",
+        "format": "<span font='10'>{icon}</span>  {}",
         "return-type": "json",
         "max-length": 40,
         "format-icons": {
