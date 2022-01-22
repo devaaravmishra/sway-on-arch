@@ -35,8 +35,7 @@
     "clock": {
         "format": "{:%a %b %e %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-        "today-format": "<b>{}</b>",
-        "on-click": "gnome-calendar"
+        "today-format": "<b>{}</b>"
     },
     
     // Network Module
