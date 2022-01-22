@@ -26,7 +26,8 @@
          "format": "<span font='13'>{icon}</span> {}%",
          "format-icons": {
             "default": ""
-         }
+         },
+         "interval": 1
      }, 
 
     // Module for application running
