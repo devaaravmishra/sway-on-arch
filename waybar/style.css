@@ -39,7 +39,7 @@
 /* Each module */
 
 #clock,
-#custom-layout,
+#custom-media,
 #memory,
 #network,
 #pulseaudio,
@@ -112,6 +112,11 @@
 
 #memory {
     color:#FFD700;
+}
+
+#custom-media {
+    color: #ffffff;
+    min-width: 100px;
 }
 
 #clock {
