@@ -53,7 +53,7 @@
     
     // Audio Module
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "<span font='13'>{icon}</span> {volume}%",
         "format-bluetooth": "{icon} {volume}%",
         "format-bluetooth-muted": "{format_source}",
         "format-muted": "{format_source}",
