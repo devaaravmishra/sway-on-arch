@@ -3,7 +3,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     
     // Order of modules to render
-    "modules-left": ["sway/workspaces",  "custom/media"],
+    "modules-left": ["sway/workspaces", "custom/media"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "memory", "pulseaudio", "network"],
     
@@ -80,7 +80,7 @@
             "default": "🎜"
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+        //"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        "exec": "python3 $HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }    
 }
