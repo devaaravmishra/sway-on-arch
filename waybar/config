@@ -64,8 +64,7 @@
             "headphone": "",
             "hands-free": "",
  	    "default": ["墳", "墳", "墳"]
-        },
-        "on-click": "pavucontrol"
+        }
     },
     
     // Custom Module for playback
