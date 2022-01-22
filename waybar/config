@@ -54,7 +54,6 @@
     
     // Audio Module
     "pulseaudio": {
-        "scroll-step": 3, // %, can be a float
         "format": "{icon} {volume}%",
         "format-bluetooth": "{icon} {volume}%",
         "format-bluetooth-muted": "{format_source}",
