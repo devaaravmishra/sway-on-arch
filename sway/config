@@ -129,7 +129,6 @@ bindsym XF86AudioPrev exec playerctl previous
     # Opens a window in Floating mode
     # for_window [app_id="Alacritty"] floating enable
     
-    bindsym $mod+c exec for_window [app_id="Alacritty"] floating enable
 
 # Moving around:
 
