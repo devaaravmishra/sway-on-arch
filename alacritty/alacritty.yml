@@ -7,7 +7,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  TERM: alacritty
 
 
 # Font configuration
@@ -102,7 +102,7 @@ cursor:
     #   - ▇ Block
     #  - _ Underline
     #   - | Beam
-    shape: Block
+    shape: Beam
 
     #Cursor blinking state
     #
@@ -111,7 +111,7 @@ cursor:
     #   - Off: Disable blinking by default
     #   - On: Enable blinking by default
     #   - Always: Force the cursor to always blink
-    blinking: On
+    blinking: on
     blinking_interval: 750
 import:
   - ~/.config/alacritty/paradise.yml
