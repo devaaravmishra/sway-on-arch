@@ -117,6 +117,7 @@
 #custom-media {
     color: #ffffff;
     min-width: 100px;
+    font-weight:normal;
 }
 
 #clock {
@@ -129,7 +130,7 @@
 }
 
 #pulseaudio.muted {
-    color: #FFFFFF
+    color: #FFFFFF;
 }
 
 #pulseaudio.source-muted {
