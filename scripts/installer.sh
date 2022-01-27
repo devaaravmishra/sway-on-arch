@@ -16,7 +16,6 @@ echo -e "\n======> Completed installing packages."
 # Copying config files to ~/.config/ dir
 cp -frv \
 	../alacritty \
-	../mako \
 	../sway \
 	../dunst \
 	../swaylock \
