@@ -23,6 +23,6 @@ cp -frv \
 	../wofi \
 	../../.config/
 
-echo -e "\n======> Placed configs to thier respective dir..."
+echo -e "\n======> Done Patching configs..."
 
 echo -e "\nAM-OS installed... Reboot now for changes to take effect!"
