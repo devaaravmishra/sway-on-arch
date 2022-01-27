@@ -23,7 +23,7 @@
     
    // Memory Module
     "memory": {
-         "format": "<span font='13'>{icon}</span> {used:0.1f}GB",
+         "format": "<span font='13'>{icon}</span> {used:0.1f}G",
          "format-icons": {
             "default": ""
          },
