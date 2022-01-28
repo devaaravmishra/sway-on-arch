@@ -60,16 +60,17 @@
     // Audio Module
     "pulseaudio": {
         "format": "<span font='13'>{icon}</span> {volume}%",
-        "format-bluetooth": "{icon} {volume}%",
-        "format-bluetooth-muted": "{format_source}",
-        "format-muted": "{format_source}",
-	        "format-source": "婢",
-        	"format-source-muted": "婢",
+        "format-bluetooth": "<span color='#FFA500' font='13'></span> <span color='#FFA500'>{volume}%</span>",
+        "format-bluetooth-muted": "<span font='13'>{format_source}</span>",
+        "format-muted": "<span font='13'>{format_source}</span>",
+			"format-source": "婢",
+			"format-source-muted": "婢",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
  	    "default": ["墳", "墳", "墳"]
-        }
+        },
+        "on-click": "pavucontrol"
     },
     
     // Custom Module for playback
@@ -81,14 +82,14 @@
           "return-type": "json",
           "max-length":70,
           "exec": "playerctl -a metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-          "on-click": "playerctl play-pause",
+          "on-click": "playerctl play-pause"
       },
 
 	// Dunst Module
     "custom/dunst": {
      	"exec": "~/.config/waybar/scripts/dunst.sh",
         "on-click": "dunstctl set-paused toggle",
-        "restart-interval": 1,
+        "restart-interval": 1
       }
                 
 }
