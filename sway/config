@@ -92,9 +92,9 @@ input * xkb_numlock enable
 
 
 ### Multimedia Keys
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/notify.sh muted
+bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/notify.sh audio
+bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/notify.sh audio
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -119,7 +119,7 @@ bindsym XF86AudioPrev exec playerctl previous
     bindsym $mod+n exec $files
     
     # Launch browser
-    bindsym $mod+b exec $browser
+    bindsym $mod+g exec $browser
 
     # Launch Telegram
     bindsym $mod+t exec $telegram
@@ -139,13 +139,14 @@ bindsym XF86AudioPrev exec playerctl previous
 	## Screenshot
 
 	# Take a screenshot of size
-	bindsym Shift+Print exec grim -g "$(slurp)" notify-send "Screenshot captured!"
+	bindsym Shift+Print exec grim -g "$(slurp)" && notify-send "Screenshot captured!"
 
 	# Take sreenshot of entire screen
 	bindsym Print exec grim ~/Pictures/Screenshot/ && notify-send "Screenshot captured!"
 
 	# Take a screenshot of size and copy to clipboard
-	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy  notify-send "Screenshot captured to clipboard!"
+	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot captured to clipboard!"
+
 
 # Moving around:
 
