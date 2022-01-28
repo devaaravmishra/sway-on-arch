@@ -74,15 +74,19 @@
     
     // Custom Module for playback
     "custom/media": {
-        "format": "<span color ='#1ed761' font='10'>{icon}</span>  {}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        //"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        "exec": "python3 $HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    }    
+          "format": "<span color ='#1ed761' font='11'></span> <span font='10'> {icon}</span>{}",
+          "format-icons": {
+          	"Paused": ""
+   	      },
+          "return-type": "json",
+          "max-length":70,
+          "exec": "playerctl -a metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+          "on-click": "playerctl play-pause",
+      }
+          
 }
+
+
+
+
+
