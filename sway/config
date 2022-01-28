@@ -14,7 +14,7 @@ set $right l
 set $term alacritty
 
 # File Manager
-set $files thunar
+set $files nautilus
 
 # Browser
 set $browser google-chrome-stable
@@ -51,7 +51,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'paradise'
-    gsettings set $gnome-schema icon-theme 'breeze-extra-gnome'
+    gsettings set $gnome-schema icon-theme 'Papirus'
     gsettings set $gnome-schema font-name 'Ubuntu 11'
     gsettings set $gnome-schema document-font-name 'Cascadia Code Regular 12'
     gsettings set $gnome-schema monospace-font-name 'Ubuntu Mono 11'
@@ -103,21 +103,28 @@ bindsym XF86AudioPrev exec playerctl previous
 ### Key bindings
 
 # Basics:
+    # Kill focused window
+    bindsym $mod+Shift+q kill
 
     # Start a terminal
     bindsym $mod+Return exec $term
 
-    # Kill focused window
-    bindsym $mod+Shift+q kill
-
     # Start your launcher
     bindsym $mod+d exec $menu
 
+    # Start code
+    bindsym $mod+c exec $code
+
+    # Launch Files
+    bindsym $mod+n exec $files
+    
+    # Launch browser
+    bindsym $mod+b exec $browser
+
+    # Launch Telegram
+    bindsym $mod+t exec $telegram
+
     # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
     floating_modifier $mod normal
 
     # Reload the configuration file
@@ -132,34 +139,23 @@ bindsym XF86AudioPrev exec playerctl previous
 	## Screenshot
 
 	# Take a screenshot of size
-	bindsym Shift+Print exec grim -g "$(slurp)"
+	bindsym Shift+Print exec grim -g "$(slurp)" notify-send "Screenshot captured!"
 
 	# Take sreenshot of entire screen
-	bindsym Print exec grim
+	bindsym Print exec grim ~/Pictures/Screenshot/ && notify-send "Screenshot captured!"
 
 	# Take a screenshot of size and copy to clipboard
-	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy  
+	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy  notify-send "Screenshot captured to clipboard!"
 
 # Moving around:
 
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-
-    # Ditto, with arrow keys
+    # Move the focused window
     bindsym $mod+Shift+Left move left
     bindsym $mod+Shift+Down move down
     bindsym $mod+Shift+Up move up
@@ -234,16 +230,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # Resizing containers:
 
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
-
-    # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
