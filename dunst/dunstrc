@@ -1,7 +1,7 @@
 [global]
   monitor = 0
   follow = mouse
-  shrink = no
+  shrink = yes
   padding = 20
   horizontal_padding = 20
   origin = bottom-right
@@ -11,7 +11,7 @@
   frame_color = "#96CDFB"
   separator_color= "#96CDFB"
   sort = no
-  font = Ubuntu 10
+  font = Ubuntu Mono 9
   markup = full
   format = "<b>%s</b>\n%b"
   alignment = left
@@ -37,15 +37,15 @@
   mouse_right_click = close_all
 
 [urgency_low]
-    background = "#1E1E2E"
+    background = "#201c1c"
     foreground = "#D9E0EE"
 
 [urgency_normal]
-    background = "#1E1E2E"
+    background = "#201c1c"
     foreground = "#D9E0EE"
 
 [urgency_critical]
-    background = "#1E1E2E"
+    background = "#201c1c"
     foreground = "#D9E0EE"
 
 
