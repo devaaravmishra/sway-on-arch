@@ -16,33 +16,34 @@ font:
   normal:
     # Font family
     
-    family: UbuntuMono
+    family: CascadiaCode
     # The `style` can be specified to pick a specific face.
     style: Regular
 
   # Bold font face
   bold:
     # Font family
-    family: UbuntuMono
+    family: CascadiaCode
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
     # Font family
-    family: UbuntuMono
+    family: CascadiaCode
+    
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Bold italic font face
   bold_italic:
     # Font family
-    family: UbuntuMono
+    family: CascadiaCode
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Foint size
-  size: 14.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -58,7 +59,7 @@ font:
     x: 0
     y: 0
 
-# Colors (Tomorrow Night)
+# Colors
 colors:
   # Default colors
   primary:
@@ -67,25 +68,28 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#000000'
-    red:     '#e356a7'
-    green:   '#42e66c'
-    yellow:  '#e4f34a'
-    blue:    '#9a91ff'
-    magenta: '#ffffff'
-    cyan:    '#75d7ec'
-    white:   '#fafafa'
+    black:   '#3f3f3f'
+    red:     '#ff0883'
+    green:   '#83ff08'
+    yellow:  '#ffdf00'
+    blue:    '#00b7eb'
+    magenta: '#7b68ee'
+    cyan:    '#08ff83'
+    white:   '#bebebe'
 
   # Bright colors
   bright:
-    black:   '#666666'
-    red:     '#ff79c6'
-    green:   '#50fa7b'
+    black:   '#474747'
+    red:     '#ff1e8e'
+    green:   '#8eff1e'
     yellow:  '#f1fa8c'
-    blue:    '#b897ff'
-    magenta: '#E64747'
-    cyan:    '#8be9fd'
-    white:   '#eaeaea'
+    blue:    '#00ffff'
+    magenta: '#9370db'
+    cyan:    '#1eff8e'
+    white:   '#c4c4c4'
+
+
+    
 
 # Background opacity
 #
