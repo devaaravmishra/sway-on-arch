@@ -31,7 +31,7 @@
 #waybar {
     background-color:transparent;
     color: #ffffff;
-    font-family:  "Ubuntu Mono","Cantarell";
+    font-family:  "Ubuntu Mono", "Jetbrains Mono";
     font-size: 14px;
     font-weight: bold;
 }

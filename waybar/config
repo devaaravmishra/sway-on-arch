@@ -75,7 +75,7 @@
     
     // Custom Module for playback
     "custom/media": {
-          "format": "<span color ='#1ed761' font='11'></span> <span font='10'> {icon}</span>{}",
+          "format": "<span color ='#1ed761' font='11'></span> <span font='8'> {icon}</span>{}",
           "format-icons": {
           	"Paused": ""
    	      },
