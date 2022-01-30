@@ -52,14 +52,14 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'paradise'
     gsettings set $gnome-schema icon-theme 'Papirus'
-    gsettings set $gnome-schema font-name 'Ubuntu 11'
+    gsettings set $gnome-schema font-name 'Inter V 11'
     gsettings set $gnome-schema document-font-name 'Cascadia Code Regular 12'
-    gsettings set $gnome-schema monospace-font-name 'Ubuntu Mono 11'
+    gsettings set $gnome-schema monospace-font-name 'Inter Mono 11'
 }
 
 
 ### Font configuration
-font pango: Ubuntu:style=Regular 10:
+font pango: Inter V:style=Regular 11:
 
 
 ### Wallpaper configuration
