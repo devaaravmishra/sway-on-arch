@@ -14,6 +14,7 @@ pacman -Sy --needed $(<pkg/packages.txt)
 echo -e "\n======> Completed installing packages."
 
 # Copying config files to ~/.config/ dir
+mkdir -p ${HOME}/.config
 cp -frv \
 	../alacritty \
 	../sway \
@@ -25,4 +26,10 @@ cp -frv \
 
 echo -e "\n======> Done Patching configs..."
 
-echo -e "\nAM-OS installed... Reboot now for changes to take effect!"
+echo -e "\n======> Setting Wallpaper for home & lockscreen..."
+
+cp -frv \
+	../Wallpapers \
+	../../Pictures/
+
+echo -e "\nSway On Arch installed... Reboot now for changes to take effect!"
