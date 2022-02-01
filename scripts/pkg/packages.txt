@@ -6,7 +6,7 @@ dunst
 slup
 sway
 swayidle
-swaylock
+swaylock-effects
 waybar
 wofi
 wl-clipboard
