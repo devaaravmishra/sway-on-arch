@@ -75,6 +75,9 @@ exec swayidle -w \
   		resume 'swaymsg "output * dpms on"' \
         before-sleep 'playerctl pause'\
   	before-sleep 'swaylock -f'
+
+# Enable xWayland support
+xwayland enable
 	
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
