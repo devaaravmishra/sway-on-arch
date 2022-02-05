@@ -16,21 +16,21 @@ font:
   normal:
     # Font family
     
-    family: CascadiaCode
+    family: JetBrainsMono Nerd Font
     # The `style` can be specified to pick a specific face.
     style: Regular
 
   # Bold font face
   bold:
     # Font family
-    family: CascadiaCode
+    family: JetBrainsMono Nerd Font
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
     # Font family
-    family: CascadiaCode
+    family: JetBrainsMono Nerd Font
     
     # The `style` can be specified to pick a specific face.
     style: Italic
@@ -38,7 +38,7 @@ font:
   # Bold italic font face
   bold_italic:
     # Font family
-    family: CascadiaCode
+    family: JetBrainsMono Nerd Font
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
@@ -63,7 +63,7 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#282c34'
+    background: '#16161d'
     foreground: '#ffffff'
 
   # Normal colors
