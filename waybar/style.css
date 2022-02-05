@@ -24,16 +24,22 @@
 * {
     border: none;
     min-height: 0;
-    margin: 0.2em 0.3em 0.2em 0.3em;
+    font-weight: bold;
+    padding: 1px 0 2px 0; 
+    font-family: "Inter V", "JetbrainsMono Nerd Font";
+    font-size: 13px; 
 }
 
 /* The whole bar */
-#waybar {
-    background-color:transparent;
-    color: #ffffff;
-    font-family:  "Ubuntu Mono", "Jetbrains Mono";
-    font-size: 14px;
-    font-weight: bold;
+window#waybar {
+	background-color: transparent;
+	color: #ffffff;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
 }
 
 /* Each module */
@@ -43,10 +49,11 @@
 #memory,
 #network,
 #pulseaudio,
-#tray,
-#backlight{
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+#custom-dunst,
+#window,
+#tray {
+    padding-left: 0.8em;
+    padding-right: 0.8em;
 }
 
 /* Each module that should blink */
@@ -73,41 +80,35 @@
     color: #ebcb8b;
 }
 
+tooltip { 
+	background-color: rgba(0, 0, 0, 0.8);
+	border-radius: 10px;
+} 
 
 /* Workspaces stuff */
 
 #workspaces button {
-    font-weight: bold; /* Somewhy the bar-wide setting is ignored*/
-    padding: 0;
     color: #FFD700;
-    font-size: 1.1em;
+    padding: 0 4px; 
+    min-width: 25px;
 }
 
 #workspaces button.focused {
-    color:#33ff33;
-    font-size: 1.1em;
+    color: #33ff33;
 }
 
 #workspaces button.urgent {
     border-color: #ff6600;
     color: #c9545d;
-    font-size: 1.1em;
-}
-
-#window {
-    margin-right: 40px;
-    margin-left: 40px;
-    font-weight: normal;
 }
 
 #network {
     color:#42e66c;
-    font-size:1.3em;
+    font-size:14px;
 }
 
 #network.format-disconnected{
     color:#42e66c;
-    font-size:1.3em;
 }
 
 #memory {
@@ -118,10 +119,10 @@
     color: #ffffff;
     min-width: 100px;
     font-weight:normal;
+    color: #AAFF00;
 }
 
 #clock {
-    padding:0.2em 0.6em 0.2em 0.6em;
     color: #00ffff;
 }
 
@@ -144,3 +145,6 @@
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
+
+
+
