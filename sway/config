@@ -26,12 +26,15 @@ set $code code
 set $telegram telegram-desktop
 
 # Menu Wofi
-set $menu exec wofi --show=drun --width=600
+set $menu exec wofi --width=600
+
+# Power Menu (wofi)
+set $power "bash ~/.config/sway/powerctrl.sh"
 
 ### Window configuration
 # Set inner & outer gaps
 gaps inner 10
-gaps outer 5
+smart_gaps on
 
 ### Window borders
 
@@ -54,7 +57,7 @@ exec_always {
     gsettings set $gnome-schema icon-theme 'Papirus'
     gsettings set $gnome-schema font-name 'Inter V 11'
     gsettings set $gnome-schema document-font-name 'Cascadia Code Regular 12'
-    gsettings set $gnome-schema monospace-font-name 'Inter Mono 11'
+    gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Dont 11'
 }
 
 
@@ -86,13 +89,19 @@ exec sway-audio-idle-inhibit
 for_window [class=".*"] inhibit_idle fullscreen
 for_window [app_id=".*"] inhibit_idle fullscreen
 
-
+# Move MPV/Spotify window to workspace 3 Always.
+for_window [app_id="mpv"] move container to workspace 3; workspace 3
+for_window [app_id="spotify"] move container to workspace 3; workspace 3
 	
 ### Toggle Keys Configuration
 
 #Initially enable NumLock
 input * xkb_numlock enable
 
+# Swap caps & escape key
+	input * {
+		xkb_options caps:swapescape
+    }
 
 ### Multimedia Keys
 bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/notify.sh muted
@@ -127,6 +136,9 @@ bindsym XF86AudioPrev exec playerctl previous
     # Launch Telegram
     bindsym $mod+t exec $telegram
 
+    # Launch Power Menu
+    bindsym $mod+p exec $power
+
     # Drag floating windows by holding down $mod and left mouse button.
     floating_modifier $mod normal
 
@@ -142,10 +154,10 @@ bindsym XF86AudioPrev exec playerctl previous
 	## Screenshot
 
 	# Take a screenshot of size
-	bindsym Shift+Print exec grim -g "$(slurp)" && notify-send "Screenshot captured!"
+	bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
 
 	# Take sreenshot of entire screen
-	bindsym Print exec grim ~/Pictures/Screenshot/ && notify-send "Screenshot captured!"
+	bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"	
 
 	# Take a screenshot of size and copy to clipboard
 	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot captured to clipboard!"
@@ -193,8 +205,8 @@ bindsym XF86AudioPrev exec playerctl previous
     # We just use 1-10 as the default.
     
     # Move windows to next workspace
-    bindsym $mod+Control+Left move container to workspace prev; workspace prev
-    bindsym $mod+Control+Right move container to workspace next; workspace next
+    bindsym $mod+Control+A move container to workspace prev; workspace prev
+    bindsym $mod+Control+D move container to workspace next; workspace next
 
     
     
