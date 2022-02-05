@@ -1,26 +1,30 @@
 window {
 margin: 0px;
 border: 2px solid #00ffff;
-background-color: #171717;
+background-color: #1c1c1c;
 }
 
 #input {
 margin: 5px;
 border: none;
 color: #f8f8f2;
-background-color: #171717;
+background-color: #1c1c1c; 
+}
+
+#input:focus{
+border-bottom: 1px solid #00ffff;
 }
 
 #inner-box {
 margin: 5px;
 border: none;
-background-color: #171717;
+background-color: #1c1c1c;
 }
 
 #outer-box {
 margin: 5px;
 border: none;
-background-color: #171717;
+background-color: #1c1c1c;
 }
 
 #scroll {
