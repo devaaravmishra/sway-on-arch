@@ -1,6 +1,6 @@
 image="$HOME/Pictures/Wallpapers/lock.jpg"
 ignore-empty-password
-font=Ubuntu
+font=Inter
 disable-caps-lock-text
 
 text-ver-color=00000000
@@ -29,8 +29,8 @@ indicator
 clock
 timestr=%I:%M %p
 datestr=%A, %d %B
-indicator-x-position=1000
+indicator-x-position=950
 indicator-y-position=200
 indicator-radius=200
 font-size=50
-text-color=F48FB1
+text-color=808080
