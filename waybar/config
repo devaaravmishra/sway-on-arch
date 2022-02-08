@@ -3,7 +3,7 @@
     "position": "top", // Waybar position (top|bottom|left|right)
     
     // Order of modules to render
-    "modules-left": ["sway/workspaces", "custom/media"],
+    "modules-left": ["sway/workspaces", "custom/media","custom/spotify"],
     "modules-center": ["clock"],
     "modules-right": ["tray", "memory", "pulseaudio", "network"],
     
@@ -13,7 +13,7 @@
     "sway/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
-         "format": "{icon}",
+         "format": "<span font='13'>{icon}</span>",
          "format-icons": {
             "urgent": "",
             "focused": "",
@@ -23,46 +23,44 @@
     
    // Memory Module
     "memory": {
-         "format": "<span font='13'>{icon}</span> {used:0.1f}G",
+         "format": "<span font='12'>{icon}</span> {used:0.1f}G",
          "format-icons": {
-            "default": ""
+            "default": "﬙"
          },
          "interval": 1,
-         "tooltip": false
+         "tooltip-format": "Free: {avail:0.1f}G"
      }, 
 
     // Module for application running
     "tray": {
         "spacing": 5,
-        "icon-size":15
+        "icon-size":18
     },
     
     // Clock Module
     "clock": {
-        "format": "{:%a %b %e %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-        "today-format": "<b>{}</b>"
+        "format": "{:%a %b%e %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>"
     },
     
     // Network Module
     "network": {
-        // "interface": "wlan0", // (Optional) To force the use of this interface,
-        "format-wifi": "直",
+        // "interface": "wlan0",
+        "format-wifi": "",
         "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "睊",
-        "format-alt": " {bandwidthUpBits}  {bandwidthDownBits}",
         "family": "ipv4",
-        "tooltip-format-wifi": "直  @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%",
-        "tooltip-format-ethernet": " @ {essid}\nIP: {ipaddr}"
+        "tooltip-format-wifi": "SSID: {essid}\nStrength: {signalStrength}%\n {bandwidthUpBits}  {bandwidthDownBits}",
+        "tooltip-format-ethernet": "SSID: {essid}\nIP: {ipaddr}"
     },
     
     // Audio Module
     "pulseaudio": {
-        "format": "<span font='13'>{icon}</span> {volume}%",
-        "format-bluetooth": "<span color='#FFA500' font='13'></span> <span color='#FFA500'>{volume}%</span>",
-        "format-bluetooth-muted": "<span font='13'>{format_source}</span>",
-        "format-muted": "<span font='13'>{format_source}</span>",
+        "format": "<span font='12'>{icon}</span> {volume}%",
+        "format-bluetooth": "<span font='12'></span> {volume}%",
+        "format-bluetooth-muted": "<span font='12'>{format_source}</span>",
+        "format-muted": "<span font='12'>{format_source}</span>",
 			"format-source": "婢",
 			"format-source-muted": "婢",
         "format-icons": {
@@ -70,28 +68,42 @@
             "hands-free": "",
  	    "default": ["墳", "墳", "墳"]
         },
+        "max-length":10,
         "on-click": "pavucontrol"
     },
     
     // Custom Module for playback
-    "custom/media": {
-          "format": "<span color ='#1ed761' font='11'></span> <span font='8'> {icon}</span>{}",
+    "custom/spotify": {
+          "format": "{icon}{}",
           "format-icons": {
-          	"Paused": ""
+          	"Paused": "<span color ='#c0c0c0'font='12'></span>",
+          	"Playing": "<span color ='#1ed761'font='12'></span>"
    	      },
           "return-type": "json",
-          "max-length":70,
-          "exec": "playerctl -a metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-          "on-click": "playerctl play-pause"
+          "max-length":30,
+          "on-click": "playerctl play-pause",
+          "exec": "playerctl --player=spotify metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
       },
-
+	"custom/media": {
+	  	  "format": "{icon}{}",
+	  	  "format-icons": {
+	  	  	"Paused": "<span color ='#3fff00'font='12'></span>",
+	  	  	"Playing": "<span color ='#3fff00'font='12'></span>"
+	  	  },
+	  	  "return-type": "json",
+	  	  "max-length":30,
+	  	  "on-click": "playerctl play-pause",
+	  	  "exec": "playerctl --ignore-player=spotify metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+	  },  	
 	// Dunst Module
     "custom/dunst": {
-     	"exec": "~/.config/waybar/scripts/dunst.sh",
-        "on-click": "dunstctl set-paused toggle",
-        "restart-interval": 1
-      }
-                
+    	"exec": "~/.config/waybar/dunst.sh",
+    	"on-click": "dunstctl set-paused toggle",
+    	"restart-interval": 1,
+    	"format": "{}",
+		"on-click": "pavucontrol",    	
+    	"return-type": "json",
+    }
 }
 
 
