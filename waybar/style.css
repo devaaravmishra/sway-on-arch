@@ -25,9 +25,9 @@
     border: none;
     min-height: 0;
     font-weight: bold;
-    padding: 1px 0 2px 0; 
+    padding: 1px 2px 2px 2px; 
     font-family: "Inter V", "JetbrainsMono Nerd Font";
-    font-size: 13px; 
+    font-size: 14px; 
 }
 
 /* The whole bar */
@@ -46,6 +46,7 @@ window#waybar.hidden {
 
 #clock,
 #custom-media,
+#custom-spotify,
 #memory,
 #network,
 #pulseaudio,
@@ -82,7 +83,7 @@ window#waybar.hidden {
 
 tooltip { 
 	background-color: rgba(0, 0, 0, 0.8);
-	border-radius: 10px;
+	border-radius: 5px;
 } 
 
 /* Workspaces stuff */
@@ -115,8 +116,13 @@ tooltip {
     color:#FFD700;
 }
 
-#custom-media {
-    color: #ffffff;
+#custom-media, #custom-spotify {
+    min-width: 100px;
+    color: #33ff33;
+
+}
+
+#custom-dunst {
     min-width: 100px;
     font-weight:normal;
     color: #AAFF00;
