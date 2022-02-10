@@ -1,5 +1,5 @@
-install-packages:
+install:
 	cd scripts && sudo ./installer.sh
 
-update-config:
+update:
 	cd scripts && ./update-configs.sh
