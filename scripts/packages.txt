@@ -3,10 +3,9 @@ grim
 nautilus
 playerctl
 dunst
-slup
+slurp
 sway
 swayidle
-swaylock-effects
 waybar
 wofi
 wl-clipboard
