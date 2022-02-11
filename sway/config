@@ -31,25 +31,32 @@ set $menu exec wofi --width=600
 # Power Menu (wofi)
 set $power "bash ~/.config/sway/powerctrl.sh"
 
-### Window configuration
+# Keybindings popup
+set $keyb "bash ~/.scripts/swaykb.sh"
+
+## Window configuration
 # Set inner & outer gaps
 gaps inner 10
 smart_gaps on
 
-### Window borders
+## Window borders
 
 # Disable window title bar
 default_border pixel 2
 
 # Window decoration
-# class            border   backgr.   text     indicator  child_border
-client.focused     #00ffff  #00ffff   #ffffff  #00ffff    #00ffff
-
+# class            		border   backgr.   text     indicator  child_border
+client.focused     		#00ffff  #00ffff   #ffffff  #00ffff    #00ffff
+client.unfocused   		#212121  #212121   #f0f0f0  #212121    #212121
+client.focused_inactive #212121  #212121   #f0f0f0  #212121    #212121
 
 # Autostart
 exec --no-startup-id dunst
 
-### GTK Settings
+# Autotiling
+exec autotiling-rs
+
+## GTK Settings
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
@@ -61,15 +68,15 @@ exec_always {
 }
 
 
-### Font configuration
+## Font configuration
 font pango: Inter V:style=Regular 11:
 
 
-### Wallpaper configuration
-output * bg ~/Pictures/Wallpapers/wp6565099-minimalistic-scenery-wallpapers.png fill
+## Wallpaper configuration
+output * bg /home/am/Pictures/Wallpapers/147.png fill
 
 
-### Idle configuration
+## Idle configuration
 
 # Line 73 To Pause any Playing Media before sleep
 exec swayidle -w \
@@ -93,7 +100,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 for_window [app_id="mpv"] move container to workspace 3; workspace 3
 for_window [app_id="spotify"] move container to workspace 3; workspace 3
 	
-### Toggle Keys Configuration
+## Toggle Keys Configuration
 
 #Initially enable NumLock
 input * xkb_numlock enable
@@ -103,18 +110,10 @@ input * xkb_numlock enable
 		xkb_options caps:swapescape
     }
 
-### Multimedia Keys
-bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/notify.sh muted
-bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/notify.sh audio
-bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/notify.sh audio
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-
 ### Key bindings
 
-# Basics:
+## Basics:
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -129,7 +128,7 @@ bindsym XF86AudioPrev exec playerctl previous
 
     # Launch Files
     bindsym $mod+n exec $files
-    
+
     # Launch browser
     bindsym $mod+g exec $browser
 
@@ -150,20 +149,31 @@ bindsym XF86AudioPrev exec playerctl previous
 
     # Opens a window in Floating mode
     # for_window [app_id="Alacritty"] floating enable
+    for_window [app_id="yad"] floating enable
 
-	## Screenshot
+    # Pop keybindings window
+    bindsym $mod+k exec $keyb
+
+	# Screenshot
 
 	# Take a screenshot of size
 	bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
 
 	# Take sreenshot of entire screen
-	bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"	
+	bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
 
 	# Take a screenshot of size and copy to clipboard
 	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot captured to clipboard!"
 
+	# Multimedia Keys
+	bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/notify.sh muted
+	bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/notify.sh audio
+	bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/notify.sh audio
+	bindsym XF86AudioPlay exec playerctl play-pause
+	bindsym XF86AudioNext exec playerctl next
+	bindsym XF86AudioPrev exec playerctl previous
 
-# Moving around:
+## Moving around:
 
     # Move your focus around
     bindsym $mod+Left focus left
@@ -177,7 +187,7 @@ bindsym XF86AudioPrev exec playerctl previous
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-# Workspaces:
+## Workspaces:
 
     # Switch to workspace
     bindsym $mod+1 workspace number 1
@@ -190,6 +200,7 @@ bindsym XF86AudioPrev exec playerctl previous
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
+
     # Move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
@@ -201,23 +212,20 @@ bindsym XF86AudioPrev exec playerctl previous
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
+
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-    
+
     # Move windows to next workspace
     bindsym $mod+Control+A move container to workspace prev; workspace prev
     bindsym $mod+Control+D move container to workspace next; workspace next
 
     
     
-# Layout stuff:
+## Layout stuff:
 
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
+    bindsym $mod+b splith 	# horizontal split
+    bindsym $mod+v splitv 	# vertical split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -231,7 +239,7 @@ bindsym XF86AudioPrev exec playerctl previous
     # Move focus to the parent container
     bindsym $mod+a focus parent
 
-# Scratchpad:
+## Scratchpad:
 
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
@@ -243,7 +251,7 @@ bindsym XF86AudioPrev exec playerctl previous
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
-# Resizing containers:
+## Resizing containers:
 
 mode "resize" {
     bindsym Left resize shrink width 10px
@@ -258,7 +266,7 @@ mode "resize" {
 bindsym Ctrl+Shift+r mode "resize"
 
 
-# Status Bar:
+## Status Bar:
 
 bar {
 	swaybar_command waybar
