@@ -26,7 +26,7 @@
     min-height: 0;
     font-weight: bold;
     padding: 1px 2px 2px 2px; 
-    font-family: "Inter V", "JetbrainsMono Nerd Font";
+    font-family: "Inter", "JetbrainsMono Nerd Font";
     font-size: 14px; 
 }
 
@@ -50,7 +50,6 @@ window#waybar.hidden {
 #memory,
 #network,
 #pulseaudio,
-#custom-dunst,
 #window,
 #tray {
     padding-left: 0.8em;
@@ -82,8 +81,7 @@ window#waybar.hidden {
 }
 
 tooltip { 
-	background-color: rgba(0, 0, 0, 0.8);
-	border-radius: 5px;
+	border-radius: 5px; 
 } 
 
 /* Workspaces stuff */
@@ -105,7 +103,6 @@ tooltip {
 
 #network {
     color:#42e66c;
-    font-size:14px;
 }
 
 #network.format-disconnected{
@@ -118,17 +115,13 @@ tooltip {
 
 #custom-media, #custom-spotify {
     min-width: 100px;
-    color: #33ff33;
+    color: #76ff03;
+    font-family: Inter V;
+    font-weight: normal; 
 
 }
 
-#custom-dunst {
-    min-width: 100px;
-    font-weight:normal;
-    color: #AAFF00;
-}
-
-#clock {
+#clock{
     color: #00ffff;
 }
 
@@ -151,6 +144,3 @@ tooltip {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
-
-
-
