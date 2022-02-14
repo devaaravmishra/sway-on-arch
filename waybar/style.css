@@ -87,13 +87,13 @@ tooltip {
 /* Workspaces stuff */
 
 #workspaces button {
-    color: #FFD700;
+    color: #f1fa8c;
     padding: 0 4px; 
     min-width: 25px;
 }
 
 #workspaces button.focused {
-    color: #33ff33;
+    color: #83ff08;
 }
 
 #workspaces button.urgent {
@@ -102,7 +102,7 @@ tooltip {
 }
 
 #network {
-    color:#42e66c;
+    color:#83ff08;
 }
 
 #network.format-disconnected{
@@ -110,15 +110,17 @@ tooltip {
 }
 
 #memory {
-    color:#FFD700;
+    color:#ffdf00;
 }
 
 #custom-media, #custom-spotify {
     min-width: 100px;
-    color: #76ff03;
+    color: #8eff1e;
     font-family: Inter V;
-    font-weight: normal; 
+}
 
+#custom-media{
+	color: #1eff8e;
 }
 
 #clock{
@@ -126,7 +128,7 @@ tooltip {
 }
 
 #pulseaudio {
-    color: #ff80d5;
+    color: #ff0883;
 }
 
 #pulseaudio.muted {

@@ -76,8 +76,8 @@
     "custom/spotify": {
           "format": "{icon}{}",
           "format-icons": {
-          	"Paused": "<span color ='#1ed761'font='12'> </span>",
-          	"Playing": "<span color ='#1ed761'font='12'> </span>"
+          	"Paused": "<span color ='#8eff1e'font='12'> </span>",
+          	"Playing": "<span color ='#8eff1e'font='12'> </span>"
    	      },
           "return-type": "json",
           "max-length":30,
@@ -87,8 +87,8 @@
 		"custom/media": {
 	  	  "format": "{icon}{}",
 	  	  "format-icons": {
-	  	  	"Paused": "<span color ='#3fff00'font='12'> </span>",
-	  	  	"Playing": "<span color ='#3fff00'font='12'> </span>"
+	  	  	"Paused": "<span color ='#1eff8e'font='12'> </span>",
+	  	  	"Playing": "<span color ='#1eff8e'font='12'> </span>"
 	  	  },
 	  	  "return-type": "json",
 	  	  "max-length":30,
