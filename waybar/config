@@ -15,7 +15,7 @@
          "all-outputs": true,
          "format": "<span font='13'>{icon}</span>",
          "format-icons": {
-            "urgent": "",
+            "urgent": "",
             "focused": "",
             "default": ""
          }
@@ -84,7 +84,7 @@
           "on-click": "playerctl play-pause",
           "exec": "playerctl --player=spotify metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
       },
-		"custom/media": {
+	"custom/media": {
 	  	  "format": "{icon}{}",
 	  	  "format-icons": {
 	  	  	"Paused": "<span color ='#1eff8e'font='12'> </span>",
@@ -96,7 +96,3 @@
 	  	  "exec": "playerctl --ignore-player=spotify metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
 	  }
 }
-
-
-
-
