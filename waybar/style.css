@@ -1,23 +1,25 @@
 
+@import "colorschemes/dracula.css";
+
 @keyframes blink-warning {
     70% {
-        color: #ffffff;
+        color: @base08;
     }
 
     to {
-        color: #ffffff;
-        background-color: #ebcb8b;
+        color: @base08;
+        background-color: @base03;
     }
 }
 
 @keyframes blink-critical {
     70% {
-      color: #ffffff;
+      color: @base07;
     }
 
     to {
-        color: #ffffff;
-        background-color: #BF616A;
+        color: @base07;
+        background-color: @base01;
     }
 }
 
@@ -33,7 +35,7 @@
 /* The whole bar */
 window#waybar {
 	background-color: transparent;
-	color: #ffffff;
+	color: @base07;
 	transition-property: background-color;
 	transition-duration: 0.5s;
 }
@@ -65,7 +67,7 @@ window#waybar.hidden {
 
 /* Each critical module */
 #memory.critical{
-    color: #BF616A;
+    color: @base01;
 }
 
 /* Each critical that should blink */
@@ -77,7 +79,7 @@ window#waybar.hidden {
 /* Each warning */
 #network.disconnected,
 #memory.warning{
-    color: #ebcb8b;
+    color: @base03;
 }
 
 tooltip { 
@@ -87,56 +89,56 @@ tooltip {
 /* Workspaces stuff */
 
 #workspaces button {
-    color: #f1fa8c;
+    color: @base0B;
     padding: 0 4px; 
     min-width: 25px;
 }
 
 #workspaces button.focused {
-    color: #83ff08;
+    color: @base02;
 }
 
 #workspaces button.urgent {
-    border-color: #ff6600;
-    color: #c9545d;
+    border-color: @base05;
+    color: @base09;
 }
 
 #network {
-    color:#83ff08;
+    color:@base02;
 }
 
 #network.format-disconnected{
-    color:#42e66c;
+    color: @base02;
 }
 
 #memory {
-    color:#ffdf00;
+    color: @base03;
 }
 
 #custom-media, #custom-spotify {
     min-width: 100px;
-    color: #8eff1e;
+    color: @base0A;
     font-family: Inter V;
 }
 
 #custom-media{
-	color: #1eff8e;
+	color: @base0D;
 }
 
 #clock{
-    color: #00ffff;
+    color: @base0C;
 }
 
 #pulseaudio {
-    color: #ff0883;
+    color: @base09;
 }
 
 #pulseaudio.muted {
-    color: #ff80d5;
+    color: @base09;
 }
 
 #pulseaudio.source-muted {
-    color: #ff80d5;
+    color: @base09;
 }
 
 #tray > .passive {
