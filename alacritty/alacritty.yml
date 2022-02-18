@@ -7,7 +7,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: alacritty
+  TERM: xterm-256color
 
 
 # Font configuration
@@ -79,7 +79,7 @@ schemes:
      green:   '0x83ff08'
      yellow:  '0xffdf00'
      blue:    '0x00b7eb'
-     magenta: '0x7b68ee'
+     magenta: '0xA782EC'
      cyan:    '0x08ff83'
      white:   '0xbebebe'
       
@@ -90,42 +90,9 @@ schemes:
      green:   '0x8eff1e'
      yellow:  '0xf1fa8c'
      blue:    '0x00ffff'
-     magenta: '0x9370db'
+     magenta: '0xB59DFA'
      cyan:    '0x1eff8e'
      white:   '0xc4c4c4'
-
-
-  ## GoogleDark ##
-  GoogleDark: &GoogleDark
-    primary:
-     background: '0x1d1f21'
-     foreground: '0xc5c8c6'
-
-    cursor:
-     text: '0x1d1f21'
-     cursor: '0xc5c8c6'
-
-  # Normal colors
-    normal:
-     black:   '0x1d1f21'
-     red:     '0xcc342b'
-     green:   '0x198844'
-     yellow:  '0xfba922'
-     blue:    '0x3971ed'
-     magenta: '0xa36ac7'
-     cyan:    '0x3971ed'
-     white:   '0xc5c8c6'
-
-  # Bright colors
-    bright:
-     black:   '0x969896'
-     red:     '0xf96a38'
-     green:   '0x282a2e'
-     yellow:  '0x373b41'
-     blue:    '0xb4b7b4'
-     magenta: '0xe0e0e0'
-     cyan:    '0x3971ed'
-     white:   '0xffffff'
 
   ## Dracula ##
   Dracula: &Dracula
@@ -134,7 +101,6 @@ schemes:
      background: '0x282936'
      foreground: '0xe9e9f4'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
      text: '0x282936'
      cursor: '0xe9e9f4'
@@ -259,47 +225,12 @@ schemes:
      cyan:    '0x89ddff'
      white:   '0xffffff'      
 
-  ## GithubDark ##
-  GithubDark: &GithubDark
-    # Default colors
-    primary:
-     background: '0x1d1f21'
-     foreground: '0xc5c8c6'
-  
-    cursor:
-     text: '0x1d1f21'
-     cursor: '0xc5c8c6'
-  
-    # Normal colors
-    normal:
-     black:   '0x1d1f21'
-     red:     '0xcc342b'
-     green:   '0x198844'
-     yellow:  '0xfba922'
-     blue:    '0x3971ed'
-     magenta: '0xa36ac7'
-     cyan:    '0x3971ed'
-     white:   '0xc5c8c6'
-  
-    # Bright colors
-    bright:
-     black:   '0x969896'
-     red:     '0xcc342b'
-     green:   '0x198844'
-     yellow:  '0xfba922'
-     blue:    '0x3971ed'
-     magenta: '0xa36ac7'
-     cyan:    '0x3971ed'
-     white:   '0xffffff'
-
 # Available themes are:
 # *Custom
-# *GoogleDark
 # *Dracula
 # *MaterialDarker
 # *OneDark
-# *PaleNigh
-# *GithubDark
+# *PaleNight
 colors: *Custom
 
 
