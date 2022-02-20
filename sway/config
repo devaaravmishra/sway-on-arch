@@ -73,8 +73,7 @@ font pango: Inter V:style=Regular 11:
 
 
 ## Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/147.png fill
-
+output * bg /home/am/Pictures/Wallpapers/81.png fill
 
 ## Idle configuration
 
@@ -154,6 +153,7 @@ input * xkb_numlock enable
     # Pop keybindings window
     bindsym $mod+k exec $keyb
 
+
 	# Screenshot
 
 	# Take a screenshot of size
@@ -220,8 +220,9 @@ input * xkb_numlock enable
     bindsym $mod+Control+A move container to workspace prev; workspace prev
     bindsym $mod+Control+D move container to workspace next; workspace next
 
-    
-    
+	# Cycle through workspaces
+    bindsym Alt+tab workspace next_on_output
+        
 ## Layout stuff:
 
     bindsym $mod+b splith 	# horizontal split
