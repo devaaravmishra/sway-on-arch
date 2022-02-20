@@ -159,6 +159,38 @@ schemes:
      cyan:    '0x89ddff'
      white:   '0xffffff'
 
+  Monokai: &Monokai
+   # Default colors
+   primary:
+    background: '0x1c1c1c'
+    foreground: '0xf8f8f2'
+
+   cursor:
+    text: '0x272822'
+    cursor: '0xf8f8f2'
+
+   # Normal colors
+   normal:
+    black:   '0x272822'
+    red:     '0xf92672'
+    green:   '0xa6e22e'
+    yellow:  '0xf4bf75'
+    blue:    '0x66d9ef'
+    magenta: '0xae81ff'
+    cyan:    '0xa1efe4'
+    white:   '0xf8f8f2'
+
+   # Bright colors
+   bright:
+    black:   '0x75715e'
+    red:     '0xf92672'
+    green:   '0xa6e22e'
+    yellow:  '0xf4bf75'
+    blue:    '0x66d9ef'
+    magenta: '0xae81ff'
+    cyan:    '0xa1efe4'
+    white:   '0xf9f8f5'
+
   ## OneDark ##
   OneDark: &OneDark         
    # Default colors
@@ -225,13 +257,15 @@ schemes:
      cyan:    '0x89ddff'
      white:   '0xffffff'      
 
+
 # Available themes are:
 # *Custom
 # *Dracula
 # *MaterialDarker
+# *Monokai
 # *OneDark
 # *PaleNight
-colors: *Custom
+colors: *Monokai
 
 
 
