@@ -46,10 +46,10 @@
     // Network Module
     "network": {
         // "interface": "wlan0",
-        "format-wifi": "",
+        "format-wifi": "",
         "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "睊",
+        "format-disconnected": "",
         "family": "ipv4",
         "tooltip-format-wifi": "SSID: {essid}\nStrength: {signalStrength}%\n {bandwidthUpBits}  {bandwidthDownBits}",
         "tooltip-format-ethernet": "SSID: {essid}\nIP: {ipaddr}"
@@ -76,19 +76,19 @@
     "custom/spotify": {
           "format": "{icon}{}",
           "format-icons": {
-          	"Paused": "<span color ='#8eff1e'font='12'> </span>",
-          	"Playing": "<span color ='#8eff1e'font='12'> </span>"
+          	"Paused": "<span font='12'> </span>",
+          	"Playing": "<span font='12'> </span>"
    	      },
           "return-type": "json",
           "max-length":30,
           "on-click": "playerctl play-pause",
           "exec": "playerctl --player=spotify metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
       },
-	"custom/media": {
+		"custom/media": {
 	  	  "format": "{icon}{}",
 	  	  "format-icons": {
-	  	  	"Paused": "<span color ='#1eff8e'font='12'> </span>",
-	  	  	"Playing": "<span color ='#1eff8e'font='12'> </span>"
+	  	  	"Paused": "<span font='12'> </span>",
+	  	  	"Playing": "<span font='12'> </span>"
 	  	  },
 	  	  "return-type": "json",
 	  	  "max-length":30,
