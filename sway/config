@@ -1,4 +1,4 @@
-### Variables
+### Variables ###
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -8,7 +8,9 @@ set $down j
 set $up k
 set $right l
 
-## Applications
+
+
+### Applications ###
 
 # Terminal 
 set $term alacritty
@@ -34,29 +36,41 @@ set $power "bash ~/.config/sway/powerctrl.sh"
 # Keybindings popup
 set $keyb "bash ~/.scripts/swaykb.sh"
 
-## Window configuration
-# Set inner & outer gaps
-gaps inner 10
-smart_gaps on
+# Bluetooth script
+set $bt alacritty -e ~/.scripts/btconnect.sh
 
-## Window borders
+# Toggle Colorschemes
+set $colors alacritty -e ~/.scripts/theme-switcher.sh
+
+# Set wallpaper
+set $wall alacritty -e sxiv -t ~/Pictures/Wallpapers
+
+### Window configuration ###
+
+smart_gaps on
+gaps inner 10
+
+## Window borders ##
 
 # Disable window title bar
 default_border pixel 2
+# smart_borders off
 
-# Window decoration
+## Window decoration ##
+
 # class            		border   backgr.   text     indicator  child_border
 client.focused     		#00ffff  #00ffff   #ffffff  #00ffff    #00ffff
 client.unfocused   		#212121  #212121   #f0f0f0  #212121    #212121
 client.focused_inactive #212121  #212121   #f0f0f0  #212121    #212121
 
-# Autostart
+
+## Autostart ##
 exec --no-startup-id dunst
 
 # Autotiling
 exec autotiling-rs
 
-## GTK Settings
+# GTK Settings
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
@@ -67,15 +81,13 @@ exec_always {
     gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Dont 11'
 }
 
-
-## Font configuration
+# Font configuration
 font pango: Inter V:style=Regular 11:
 
+# Wallpaper configuration
+output * bg /home/am/Pictures/Wallpapers/155.jpg fill
 
-## Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/81.png fill
-
-## Idle configuration
+# Idle configuration 
 
 # Line 73 To Pause any Playing Media before sleep
 exec swayidle -w \
@@ -95,11 +107,15 @@ exec sway-audio-idle-inhibit
 for_window [class=".*"] inhibit_idle fullscreen
 for_window [app_id=".*"] inhibit_idle fullscreen
 
+
+## Control flow ##
+
 # Move MPV/Spotify window to workspace 3 Always.
 for_window [app_id="mpv"] move container to workspace 3; workspace 3
-for_window [app_id="spotify"] move container to workspace 3; workspace 3
-	
-## Toggle Keys Configuration
+for_window [app_id="spotify-adblock"] move container to workspace 3; workspace 3
+
+
+## Toggle Keys Configuration ##
 
 #Initially enable NumLock
 input * xkb_numlock enable
@@ -109,7 +125,9 @@ input * xkb_numlock enable
 		xkb_options caps:swapescape
     }
 
-### Key bindings
+
+
+### Key bindings ###
 
 ## Basics:
 
@@ -151,10 +169,19 @@ input * xkb_numlock enable
     for_window [app_id="yad"] floating enable
 
     # Pop keybindings window
-    bindsym $mod+k exec $keyb
+    bindsym Mod1+k exec $keyb
+
+	# Exec btconnect script
+	bindsym $mod+b exec $bt
+
+	# Exec theme-swticher script
+	bindsym $mod+Shift+t exec $colors
+	
+	# Set Wallpaper
+	bindsym $mod+Shift+w exec $wall
 
 
-	# Screenshot
+	## Screenshot
 
 	# Take a screenshot of size
 	bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
@@ -222,11 +249,10 @@ input * xkb_numlock enable
 
 	# Cycle through workspaces
     bindsym Alt+tab workspace next_on_output
+
+
         
 ## Layout stuff:
-
-    bindsym $mod+b splith 	# horizontal split
-    bindsym $mod+v splitv 	# vertical split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -240,17 +266,8 @@ input * xkb_numlock enable
     # Move focus to the parent container
     bindsym $mod+a focus parent
 
-## Scratchpad:
-
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+	# Switch between layouts
+	bindsym $mod+Shift+x layout toggle split
 
 ## Resizing containers:
 
