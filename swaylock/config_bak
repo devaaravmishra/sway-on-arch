@@ -1,4 +1,4 @@
-image="$HOME/Pictures/Wallpapers/lock.jpg"
+image="$HOME/.config/swaylock/lock.jpg"
 
 ignore-empty-password
 disable-caps-lock-text
