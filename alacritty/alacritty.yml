@@ -90,7 +90,7 @@ schemes:
      green:   '0x8eff1e'
      yellow:  '0xf1fa8c'
      blue:    '0x00ffff'
-     magenta: '0xB59DFA'
+     magenta: '0xadc1ff'
      cyan:    '0x1eff8e'
      white:   '0xc4c4c4'
 
@@ -265,7 +265,7 @@ schemes:
 # *Monokai
 # *OneDark
 # *PaleNight
-colors: *Monokai
+colors: *Custom
 
 
 
