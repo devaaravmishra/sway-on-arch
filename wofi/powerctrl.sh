@@ -5,22 +5,22 @@ case $(wofi -d -L 5 -l 3 -W 100 --location=center \
    Reboot
    Log off
  ⏾  Sleep
-    Lock
+     Lock
 EOF
 ) in
     "  Poweroff")
         systemctl poweroff
         ;;
-    "  Reboot")
+    "  Reboot")
         systemctl reboot
         ;;
-    "鈴  Sleep")
+    "⏾  Sleep")
         systemctl suspend
         ;;
     "   Lock")
         swaylock -f
         ;;
-    "﫼  Log off")
+    "  Log off")
         swaymsg exit
         ;;
 esac
