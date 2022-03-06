@@ -34,13 +34,13 @@ set $menu exec wofi --width=600
 set $power "bash ~/.config/sway/powerctrl.sh"
 
 # Keybindings popup
-set $keyb "bash ~/.scripts/swaykb.sh"
+set $keyb "bash ~/.config/sway/scripts/swaykb.sh"
 
 # Bluetooth script
-set $bt alacritty -e ~/.scripts/btconnect.sh
+set $bt alacritty -e ~/.config/sway/scripts/btconnect.sh
 
 # Toggle Colorschemes
-set $colors alacritty -e ~/.scripts/theme-switcher.sh
+set $colors alacritty -e ~/.config/sway/scripts/theme-switcher.sh
 
 # Set wallpaper
 set $wall alacritty -e sxiv -t ~/Pictures/Wallpapers
@@ -85,7 +85,7 @@ exec_always {
 font pango: Inter V:style=Regular 11:
 
 # Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/155.jpg fill
+output * bg /home/am/Pictures/Wallpapers/127.jpg fill
 
 # Idle configuration 
 
@@ -248,7 +248,7 @@ input * xkb_numlock enable
     bindsym $mod+Control+D move container to workspace next; workspace next
 
 	# Cycle through workspaces
-    bindsym Alt+tab workspace next_on_output
+    bindsym $mod+tab workspace next_on_output
 
 
         
