@@ -38,6 +38,7 @@
   - [xorg-xwayland](https://wayland.freedesktop.org/xserver.html#heading_toc_j_0) : X Clients under Wayland.
 
 ## NOTE
+
 For additional customisations make use of [Sway-lock-effects](https://github.com/mortie/swaylock-effects).
 - A fork of swaylock which adds built-in screenshots and image manipulation effects like blurring.
 
@@ -60,6 +61,56 @@ Install Sway-On-Arch with git
 
 ```make update```  : To sync local files with git.
 
+
+## Font configuration
+> You will need a few fonts.
+
+   - **JetBrainsMono NF:** [here](https://github.com/ryanoasis/nerd-fonts)
+   - **Font Awesome:** [here](https://fontawesome.com/download)
+   - **Material Design Icons:** [here](https://fonts.google.com/icons?selected=Material+Icons)
+
+<details open>
+  <summary><strong>Arch Linux</strong></summary>
+  <br>
+   
+  > Assuming your **AUR Helper** is [yay](https://github.com/Jguer/yay).
+
+   ```bash
+    $ yay -S ttf-material-design-icons nerd-fonts-jetbrains-mono nerd-fonts-jetbrains-mono
+   ```
+</details>
+
+
+<details open>
+  <summary><strong>Others</strong></summary>
+  <br>
+  How would i know?  
+   
+</details>
+
+<br>
+
+   > Once finished installing fonts, you might want to finalize the changes to your system by following command.
+
+   ```bash
+    # Rebuilds the font cache
+    $ fc-cache -fv
+   ```
+
+## Miscellaneous.
+   
+   - **Icon Theme**
+      > You can install [this](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) .
+
+   - **GTK Theme <kbd>Suggested</kbd>**
+      > You can find Paradise GTK theme [here](https://github.com/Manas140/paradise) GTK theme that works well with above icon theme.
+
+
+<br>
+
+   > Lastly, log out from your current desktop session and log in into sway.
+
+<br>
 
 ## Screenshots
 
