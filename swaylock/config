@@ -1,4 +1,4 @@
-image="$HOME/Pictures/Wallpapers/lock.jpg"
+image="$HOME/.config/swaylock/lock.png"
 ignore-empty-password
 font=Inter
 disable-caps-lock-text
@@ -33,4 +33,4 @@ indicator-x-position=950
 indicator-y-position=200
 indicator-radius=200
 font-size=50
-text-color=f0dcb4
+text-color=5894e4
