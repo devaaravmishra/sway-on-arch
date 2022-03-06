@@ -69,7 +69,8 @@ Install Sway-On-Arch with git
    - **Font Awesome:** [here](https://fontawesome.com/download)
    - **Material Design Icons:** [here](https://fonts.google.com/icons?selected=Material+Icons)
 
-<details open>
+### Installation
+<details close>
   <summary><strong>Arch Linux</strong></summary>
   <br>
    
@@ -81,7 +82,7 @@ Install Sway-On-Arch with git
 </details>
 
 
-<details open>
+<details close>
   <summary><strong>Others</strong></summary>
   <br>
   How would i know?  
