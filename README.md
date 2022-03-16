@@ -51,13 +51,18 @@ I personally avoid using python packages, scripts so i use [autotiling-rs](https
 Install Sway-On-Arch with git
 
 ```bash
-  git clone https://github.com/Aarav619/Sway-On-Arch.git && cd Sway-On-Arch
+ git clone https://github.com/Aarav619/Sway-On-Arch.git && cd Sway-On-Arch
 ```
 
+Install Necessary packages with pacman
 
+> Assuming you are on Arch based distro!
+```bash
+ pacman -S alacritty grim nautilus playerctl dunst slurp sway swayidle waybar wofi wl-clipboard xorg-xwayland xdg-desktop-portal-gtk
+```
 ## Usage
 
-```make install``` : To mirror entire setup.
+```make install``` : To mirror my setup.
 
 ```make update```  : To sync local files with git.
 
