@@ -54,7 +54,7 @@ gaps inner 10
 
 # Disable window title bar
 default_border pixel 2
-# smart_borders off
+smart_borders on
 
 ## Window decoration ##
 
@@ -85,7 +85,7 @@ exec_always {
 font pango: Inter V:style=Regular 11:
 
 # Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/127.jpg fill
+output * bg /home/am/Pictures/Wallpapers/29.png fill
 
 # Idle configuration 
 
