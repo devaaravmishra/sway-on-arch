@@ -7,4 +7,4 @@ cp -rv \
     ${HOME}/.config/swaylock \
     ${HOME}/.config/waybar \
     ${HOME}/.config/wofi \
-    ../
+    ../.config/
