@@ -17,4 +17,4 @@ cp -frv \
 	../Wallpapers \
 	${HOME}/Pictures/
 
-echo -e "\nSway On Arch installed... Reboot now for changes to take effect!"
+echo -e "\nSway On Arch installed... Reboot system for changes to take effect!"
