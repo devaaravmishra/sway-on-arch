@@ -5,7 +5,7 @@
     // Order of modules to render
     "modules-left": ["sway/workspaces", "custom/media","custom/spotify"],
     "modules-center": ["clock"],
-    "modules-right": ["tray", "memory", "pulseaudio", "network"],
+    "modules-right": ["tray", "memory", "pulseaudio", "battery", "network"],
     
     // Modules configuration
     
@@ -23,7 +23,7 @@
     
    // Memory Module
     "memory": {
-         "format": "<span font='12'>{icon} </span>{used:0.1f}G",
+         "format": "<span font='11'>{icon} </span>{used:0.1f}G",
          "format-icons": {
             "default": "﬙"
          },
@@ -43,6 +43,22 @@
         "tooltip-format": "<big>{:%Y %B}</big>"
     },
     
+	//Battery
+     "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}\t{capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    
     // Network Module
     "network": {
         // "interface": "wlan0",
@@ -57,7 +73,7 @@
     
     // Audio Module
     "pulseaudio": {
-        "format": "<span font='12'>{icon} </span>{volume}%",
+        "format": "<span font='11'>{icon} </span>{volume}%",
         "format-bluetooth": "<span font='12'> </span>{volume}%",
         "format-bluetooth-muted": "<span font='12'>{format_source}</span>",
         "format-muted": "<span font='12'>{format_source}</span>",

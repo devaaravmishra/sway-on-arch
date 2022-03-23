@@ -1,5 +1,4 @@
-
-@import "colorschemes/dracula.css";
+@import "colorschemes/custom.css";
 
 @keyframes blink-warning {
     70% {
@@ -29,7 +28,7 @@
     font-weight: bold;
     padding: 1px 2px 2px 2px; 
     font-family: "Inter", "JetbrainsMono Nerd Font";
-    font-size: 14px; 
+    font-size: 13px; 
 }
 
 /* The whole bar */
@@ -46,6 +45,7 @@ window#waybar.hidden {
 
 /* Each module */
 
+#battery,
 #clock,
 #custom-media,
 #custom-spotify,
@@ -58,7 +58,6 @@ window#waybar.hidden {
     padding-right: 0.8em;
 }
 
-/* Each module that should blink */
 #memory{
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -105,6 +104,10 @@ tooltip {
 
 #network {
     color:@base02;
+}
+
+#battery {
+    color:@base04;
 }
 
 #network.format-disconnected{
