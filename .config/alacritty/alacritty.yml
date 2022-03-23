@@ -43,7 +43,7 @@ font:
     style: Bold Italic
 
   # Foint size
-  size: 13.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -151,7 +151,8 @@ schemes:
      # Bright colors
     bright:
      black:   '0x4a4a4a'
-     red:     '0xf07178'
+     red:     
+     '0xf07178'
      green:   '0xc3e88d'
      yellow:  '0xffcb6b'
      blue:    '0x82aaff'
