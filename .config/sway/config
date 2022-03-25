@@ -31,7 +31,7 @@ set $telegram telegram-desktop
 set $menu exec wofi --width=450
 
 # Power Menu (wofi)
-set $power "bash ~/.config/sway/powerctrl.sh"
+set $power "bash ~/.config/sway/scripts/powerctrl.sh"
 
 # Keybindings popup
 set $keyb "bash ~/.config/sway/scripts/swaykb.sh"
@@ -78,7 +78,7 @@ exec_always {
     gsettings set $gnome-schema icon-theme 'Papirus'
     gsettings set $gnome-schema font-name 'Inter V 11'
     gsettings set $gnome-schema document-font-name 'Cascadia Code Regular 12'
-    gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Dont 11'
+    gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Font 11'
 }
 
 # Font configuration
@@ -86,6 +86,11 @@ font pango: Inter V:style=Regular 11:
 
 # Wallpaper configuration
 output * bg /home/am/Pictures/Wallpapers/29.png fill
+
+# Brightness configuration
+bindsym --locked XF86MonBrightnessUp exec light -A 5 | light | cut -d '.' -f 1 | ~/.config/sway/scripts/notify.sh brightness
+bindsym --locked XF86MonBrightnessDown exec light -U 5 | light | cut -d '.' -f 1 | ~/.config/sway/scripts/notify.sh brightness
+
 
 # Idle configuration 
 
@@ -202,9 +207,9 @@ middle_emulation enabled
 	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot captured to clipboard!"
 
 	# Multimedia Keys
-	bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/notify.sh muted
-	bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/notify.sh audio
-	bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/notify.sh audio
+	bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/scripts/notify.sh muted
+	bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/scripts/notify.sh audio
+	bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/scripts/notify.sh audio
 	bindsym XF86AudioPlay exec playerctl play-pause
 	bindsym XF86AudioNext exec playerctl next
 	bindsym XF86AudioPrev exec playerctl previous
