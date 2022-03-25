@@ -29,8 +29,8 @@ indicator
 clock
 timestr=%I:%M %p
 datestr=%A, %d %B
-indicator-x-position=950
-indicator-y-position=200
+indicator-x-position=670
+indicator-y-position=150
 indicator-radius=200
-font-size=50
+font-size=45
 text-color=5894e4
