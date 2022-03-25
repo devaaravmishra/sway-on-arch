@@ -28,7 +28,7 @@ set $code code
 set $telegram telegram-desktop
 
 # Menu Wofi
-set $menu exec wofi --width=600
+set $menu exec wofi --width=450
 
 # Power Menu (wofi)
 set $power "bash ~/.config/sway/powerctrl.sh"
