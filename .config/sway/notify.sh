@@ -2,7 +2,7 @@
 
 notifyMuted() {
         volume="$1"
-        icon="~/.config/sway/mute.png"
+        icon="~/.config/sway/icons/mute.png"
         dunstify -h string:x-canonical-private-synchronous:audio "Muted" -h int:value:"$volume" -t 1500 --icon $icon
 }
 
@@ -13,16 +13,34 @@ notifyAudio() {
         if [ $volume -eq 0 ]; then
                 notifyMuted "$volume"
         elif [ $volume -le 30 ]; then
-                icon="~/.config/sway/sound.png"
+                icon="~/.config/sway/icons/sound.png"
                 dunstify    -h string:x-canonical-private-synchronous:audio "Volume: "$volume%"" -h int:value:"$volume" -t 1500 --icon $icon
         elif [ $volume -le 70 ]; then
-                icon="~/.config/sway/sound.png"
+                icon="~/.config/sway/icons/sound.png"
                 dunstify -h string:x-canonical-private-synchronous:audio "Volume: "$volume%"" -h int:value:"$volume" -t 1500 --icon $icon
         else
-                icon="~/.config/sway/sound.png"
+                icon="~/.config/sway/icons/sound.png"
                 dunstify -h string:x-canonical-private-synchronous:audio "Volume: "$volume%"" -h int:value:"$volume" -t 1500 --icon $icon
         fi
 }
+
+notifyBrightness() {
+        brightness="$1"
+        if [ $brightness -eq 0 ]; then
+        		icon="~/.config/sway/icons/brightness.png"
+                dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: $brightness%" -h int:value:"$brightness" -t 1500 --icon $icon
+        elif [ $brightness -le 30 ]; then
+        		icon="~/.config/sway/icons/brightness.png"
+                dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: $brightness%" -h int:value:"$brightness" -t 1500 --icon $icon
+        elif [ $brightness -le 70 ]; then
+        icon="~/.config/sway/icons/brightness.png"
+                dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: $brightness%" -h int:value:"$brightness" -t 1500 --icon $icon
+        else
+        		icon="~/.config/sway/icons/brightness.png"
+                dunstify -h string:x-canonical-private-synchronous:brightness "Brightness: $brightness%" -h int:value:"$brightness" -t 1500 --icon $icon
+        fi
+}
+
 
 input=`cat /dev/stdin`
 
