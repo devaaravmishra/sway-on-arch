@@ -34,13 +34,13 @@
     // Module for application running
     "tray": {
         "spacing": 5,
-        "icon-size":18
+        "icon-size":15
     },
     
     // Clock Module
     "clock": {
-        "format": "{:%a   %b  %d   %H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>"
+        "format": "{:%b  %d   %H:%M}",
+        "tooltip-format": "<big>{:%A  %Y %B}</big>"
     },
     
 	//Battery
@@ -51,11 +51,11 @@
             "critical": 15
         },
         "format": "{icon}\t{capacity}%",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
+        // "format-good": "{icon}\t{capacity}%", // An empty format will hide the module
+        // "format-full": "{icon}\t{capacity}%",
         "format-icons": ["", "", "", "", ""]
     },
     
