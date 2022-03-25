@@ -62,7 +62,7 @@
     // Network Module
     "network": {
         // "interface": "wlan0",
-        "format-wifi": "",
+        "format-wifi":"<span font='12'></span>",
         "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "",
@@ -82,7 +82,7 @@
         "format-icons": {
             "headphone": "",
             "hands-free": "",
- 	    "default": ["墳", "墳", "墳"]
+ 	    "default": ["", "", "墳", ""]
         },
         "max-length":10,
         "on-click": "pavucontrol"
