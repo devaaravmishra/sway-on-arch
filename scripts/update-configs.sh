@@ -1,6 +1,6 @@
 # Sync dotfiles with git repo
 
-cp -rv \
+cp -frv \
     ${HOME}/.config/alacritty \
     ${HOME}/.config/dunst \
     ${HOME}/.config/sway \
