@@ -54,7 +54,7 @@ gaps inner 10
 
 # Disable window title bar
 default_border pixel 2
-smart_borders on
+smart_borders off
 
 ## Window decoration ##
 
@@ -76,8 +76,8 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'paradise'
     gsettings set $gnome-schema icon-theme 'Papirus'
-    gsettings set $gnome-schema font-name 'Inter V 11'
-    gsettings set $gnome-schema document-font-name 'Cascadia Code Regular 12'
+    gsettings set $gnome-schema font-name 'Inter 10.5'
+    gsettings set $gnome-schema document-font-name 'Inter 10.5'
     gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Font 11'
 }
 
@@ -90,7 +90,6 @@ output * bg /home/am/Pictures/Wallpapers/29.png fill
 # Brightness configuration
 bindsym --locked XF86MonBrightnessUp exec light -A 5 | light | cut -d '.' -f 1 | ~/.config/sway/scripts/notify.sh brightness
 bindsym --locked XF86MonBrightnessDown exec light -U 5 | light | cut -d '.' -f 1 | ~/.config/sway/scripts/notify.sh brightness
-
 
 # Idle configuration 
 

@@ -13,7 +13,7 @@
     "sway/workspaces": {
          "disable-scroll": true,
          "all-outputs": true,
-         "format": "<span font='13'>{icon}</span>",
+         "format": "<span font='11'>{icon}</span>",
          "format-icons": {
             "urgent": "",
             "focused": "",
@@ -34,13 +34,13 @@
     // Module for application running
     "tray": {
         "spacing": 5,
-        "icon-size":15
+        "icon-size": 15
     },
     
     // Clock Module
     "clock": {
-        "format": "{:%b  %d   %H:%M}",
-        "tooltip-format": "<big>{:%A  %Y %B}</big>"
+        "format": "{:%I:%M}",
+        "tooltip-format": "{:%a, %d %b}" 
     },
     
 	//Battery
@@ -51,8 +51,8 @@
             "critical": 15
         },
         "format": "{icon}\t{capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "ﮣ  {capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "{icon}\t{capacity}%", // An empty format will hide the module
         // "format-full": "{icon}\t{capacity}%",
