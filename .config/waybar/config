@@ -74,9 +74,9 @@
     // Audio Module
     "pulseaudio": {
         "format": "<span font='11'>{icon} </span>{volume}%",
-        "format-bluetooth": "<span font='12'> </span>{volume}%",
-        "format-bluetooth-muted": "<span font='12'>{format_source}</span>",
-        "format-muted": "<span font='12'>{format_source}</span>",
+        "format-bluetooth": "<span font='11'> </span>{volume}%",
+        "format-bluetooth-muted": "<span font='11'>{format_source}</span>",
+        "format-muted": "<span font='11'>{format_source}</span>",
 			"format-source": "婢",
 			"format-source-muted": "婢",
         "format-icons": {
@@ -92,8 +92,8 @@
     "custom/spotify": {
           "format": "{icon}{}",
           "format-icons": {
-          	"Paused": "<span font='12'> </span>",
-          	"Playing": "<span font='12'> </span>"
+          	"Paused": "<span font='11'> </span>",
+          	"Playing": "<span font='11'> </span>"
    	      },
           "return-type": "json",
           "max-length":30,
@@ -103,8 +103,8 @@
 		"custom/media": {
 	  	  "format": "{icon}{}",
 	  	  "format-icons": {
-	  	  	"Paused": "<span font='12'> </span>",
-	  	  	"Playing": "<span font='12'> </span>"
+	  	  	"Paused": "<span font='11'> </span>",
+	  	  	"Playing": "<span font='11'> </span>"
 	  	  },
 	  	  "return-type": "json",
 	  	  "max-length":30,

@@ -19,7 +19,7 @@ set $term alacritty
 set $files nautilus
 
 # Browser
-set $browser google-chrome-stable
+set $browser firefox
 
 # VS Code
 set $code code
@@ -32,9 +32,6 @@ set $menu exec wofi --width=450
 
 # Power Menu (wofi)
 set $power "bash ~/.config/sway/scripts/powerctrl.sh"
-
-# Keybindings popup
-set $keyb "bash ~/.config/sway/scripts/swaykb.sh"
 
 # Bluetooth script
 set $bt alacritty -e ~/.config/sway/scripts/btconnect.sh
@@ -75,14 +72,14 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'paradise'
-    gsettings set $gnome-schema icon-theme 'Papirus'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema font-name 'Inter 10.5'
     gsettings set $gnome-schema document-font-name 'Inter 10.5'
     gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Font 11'
 }
 
 # Font configuration
-font pango: Inter V:style=Regular 11:
+font pango: Inter:style=Regular 11:
 
 # Wallpaper configuration
 output * bg /home/am/Pictures/Wallpapers/29.png fill
@@ -114,7 +111,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 
 ## Control flow ##
 
-# Move MPV/Spotify window to workspace 3 Always.
+# Move MPV/Spotify window to specific workspace  Always.
 for_window [app_id="mpv"] move container to workspace 3; workspace 3
 for_window [app_id="spotify-adblock"] move container to workspace 3; workspace 3
 
@@ -160,7 +157,7 @@ middle_emulation enabled
     bindsym $mod+n exec $files
 
     # Launch browser
-    bindsym $mod+g exec $browser
+    bindsym $mod+x exec $browser
 
     # Launch Telegram
     bindsym $mod+t exec $telegram
@@ -180,9 +177,6 @@ middle_emulation enabled
     # Opens a window in Floating mode
     # for_window [app_id="Alacritty"] floating enable
     for_window [app_id="yad"] floating enable
-
-    # Pop keybindings window
-    bindsym Mod1+k exec $keyb
 
 	# Exec btconnect script
 	bindsym $mod+b exec $bt
