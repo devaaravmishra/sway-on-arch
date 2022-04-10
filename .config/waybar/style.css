@@ -64,13 +64,31 @@ window#waybar.hidden {
     animation-direction: alternate;
 }
 
+#battery{
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
 /* Each critical module */
 #memory.critical{
     color: @base01;
 }
 
+#battery.critical{
+    color: @base01;
+}
+
+#battery.warning{
+    color: @base0B;
+}
+
 /* Each critical that should blink */
 #memory.critical{
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+
+#battery.critical{
     animation-name: blink-critical;
     animation-duration: 2s;
 }
@@ -104,6 +122,8 @@ tooltip {
 
 #network {
     color:@base02;
+    font-size: 14px;
+
 }
 
 #battery {
