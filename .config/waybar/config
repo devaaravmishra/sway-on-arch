@@ -34,7 +34,7 @@
     // Module for application running
     "tray": {
         "spacing": 5,
-        "icon-size": 15
+        "icon-size": 13
     },
     
     // Clock Module
@@ -46,23 +46,23 @@
 	//Battery
      "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}\t{capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": "ﮣ  {capacity}%",
+        "format": "{icon}{capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "  {capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "{icon}\t{capacity}%", // An empty format will hide the module
         // "format-full": "{icon}\t{capacity}%",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""]
     },
     
     // Network Module
     "network": {
         // "interface": "wlan0",
-        "format-wifi":"<span font='12'></span>",
+        "format-wifi":"",
         "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "",
@@ -73,17 +73,12 @@
     
     // Audio Module
     "pulseaudio": {
-        "format": "<span font='11'>{icon} </span>{volume}%",
-        "format-bluetooth": "<span font='11'> </span>{volume}%",
-        "format-bluetooth-muted": "<span font='11'>{format_source}</span>",
+        "format": "&#8206;ﱘ&#8206; {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": "{format_source}",
         "format-muted": "<span font='11'>{format_source}</span>",
-			"format-source": "婢",
-			"format-source-muted": "婢",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
- 	    "default": ["", "", "墳", ""]
-        },
+			"format-source": "ﱙ",
+			"format-source-muted": "ﱙ",
         "max-length":10,
         "on-click": "pavucontrol"
     },
