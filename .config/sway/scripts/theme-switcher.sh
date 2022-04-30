@@ -15,30 +15,16 @@ if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     exit 0;
 fi
 
-selected="$(printf "%s\n" "Alacritty" "Waybar" | fzf --prompt "Select from above list to change theme for...")"
+selected="$(ls ~/.config/waybar/colorschemes |  cut -d' ' -f11- | cut -d'.' -f1 | fzf --prompt "Select Theme ")"
 
-if [ "$selected" == "Waybar" ];
+if [ "$selected" == "" ];
 then
-	new_theme="$(ls ~/.config/waybar/colorschemes |  cut -d' ' -f11- | cut -d'.' -f1 | fzf --prompt "Select Theme ")"
-	if [ -n "$new_theme" ];
-	then
-		current_theme="$(grep '@import' ~/.config/waybar/style.css | cut -d'/' -f2- | cut -d'.' -f1)"
-		sed -i "s/${current_theme}/${new_theme}/" ~/.config/waybar/style.css && sway reload && \
-		echo "$new_theme theme applied to $selected!" && \
-		notify-send "$new_theme theme applied to $selected!"
-	else
-		echo 'Selection terminated, No theme applied!'
-		exit 0;
-	fi
+	echo 'Selection terminated, No theme applied!'
+	exit 0;
 else
-	new_theme="$(grep '&' ~/.config/alacritty/alacritty.yml | cut -d'&' -f2- | fzf --prompt "Select Theme ")"
-	if [ -n "$new_theme" ];
-	then
-		sed -i "/colors:/c\colors: *${new_theme}" ~/.config/alacritty/alacritty.yml && \
-		echo "${new_theme} theme applied to ${selected}!" && \
-		notify-send "${new_theme} theme applied to ${selected}!"
-	else
-		echo 'Selection terminated, No theme applied!'
-		exit 0;
-	fi	
+	current_theme="$(grep '@import' ~/.config/waybar/style.css | cut -d'/' -f2- | cut -d'.' -f1)"
+	sed -i "s/${current_theme}/${selected}/" ~/.config/waybar/style.css && sway reload && \
+	sed -i "/colors:/c\colors: *${selected}" ~/.config/alacritty/alacritty.yml && \
+	notify-send "${selected^} theme applied!"
+	exit 0;
 fi
