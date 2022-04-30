@@ -63,7 +63,7 @@ font:
 schemes:
 
   ## Custom ##
-  Custom: &Custom
+  custom: &custom
     primary:
      background: '0x141414'
      foreground: '0xffffff'
@@ -95,7 +95,7 @@ schemes:
      white:   '0xc4c4c4'
 
   ## Dracula ##
-  Dracula: &Dracula
+  dracula: &dracula
     # Default colors
     primary:
      background: '0x282936'
@@ -128,7 +128,7 @@ schemes:
      white:   '0xf7f7fb'
 
   ## MaterialDark ##  
-  MaterialDarker: &MaterialDarker
+  materialdark: &material-dark
     primary:
      background: '0x212121'
      foreground: '0xeeffff'
@@ -160,7 +160,7 @@ schemes:
      cyan:    '0x89ddff'
      white:   '0xffffff'
 
-  Monokai: &Monokai
+  monokai: &monokai
    # Default colors
    primary:
     background: '0x1c1c1c'
@@ -193,7 +193,7 @@ schemes:
     white:   '0xf9f8f5'
 
   ## OneDark ##
-  OneDark: &OneDark         
+  ondark: &onedark         
    # Default colors
     primary:
      background: '0x282c34'
@@ -226,7 +226,7 @@ schemes:
      white:   '0xc8ccd4'
      
   ## PaleNight ##
-  PaleNight: &PaleNight
+  palenight: &palenight
     # Default colors
     primary:
      background: '0x292d3e'
@@ -266,7 +266,7 @@ schemes:
 # *Monokai
 # *OneDark
 # *PaleNight
-colors: *Custom
+colors: *dracula
 
 
 
