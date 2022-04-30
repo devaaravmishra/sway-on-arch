@@ -1,4 +1,4 @@
-@import "colorschemes/custom.css";
+@import "colorschemes/dracula.css";
 
 @keyframes blink-warning {
     70% {
@@ -47,8 +47,8 @@ window#waybar.hidden {
 
 #battery,
 #clock,
-#custom-media,
-#custom-spotify,
+#module-media,
+#module-spotify,
 #memory,
 #network,
 #pulseaudio,
@@ -138,13 +138,13 @@ tooltip {
     color: @base03;
 }
 
-#custom-media, #custom-spotify {
+#module-media, #module-spotify {
     min-width: 100px;
     color: @base0A;
     font-family: Inter V;
 }
 
-#custom-media{
+#module-media{
 	color: @base0D;
 }
 

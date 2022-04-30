@@ -84,7 +84,7 @@
     },
     
     // Custom Module for playback
-    "custom/spotify": {
+    "module/spotify": {
           "format": "{icon}{}",
           "format-icons": {
           	"Paused": "<span font='11'> </span>",
@@ -95,7 +95,7 @@
           "on-click": "playerctl play-pause",
           "exec": "playerctl --player=spotify metadata --format '{\"text\": \" {{artist}} | {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
       },
-		"custom/media": {
+		"module/media": {
 	  	  "format": "{icon}{}",
 	  	  "format-icons": {
 	  	  	"Paused": "<span font='11'> </span>",
