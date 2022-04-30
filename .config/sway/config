@@ -2,6 +2,7 @@
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -18,8 +19,13 @@ set $term alacritty
 # File Manager
 set $files nautilus
 
-# Browser
-set $browser firefox
+# Browser 
+
+# Default Profile
+set $profile1 firefox 				
+
+# ALt Profile
+set $profile2 firefox -P default-release	
 
 # VS Code
 set $code code
@@ -41,6 +47,11 @@ set $colors alacritty -e ~/.config/sway/scripts/theme-switcher.sh
 
 # Set wallpaper
 set $wall alacritty -e sxiv -t ~/Pictures/Wallpapers
+
+## Workspaces
+set $next-workspace-move ~/.config/sway/scripts/move-next-workspace
+set $prev-workspace-move ~/.config/sway/scripts/move-prev-workspace
+
 
 ### Window configuration ###
 
@@ -113,8 +124,10 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 
 # Move MPV/Spotify window to specific workspace  Always.
 for_window [app_id="mpv"] move container to workspace 3; workspace 3
-for_window [app_id="spotify-adblock"] move container to workspace 3; workspace 3
+for_window [app_id="spotify"] move container to workspace 3; workspace 3
 
+# Move VS Code to 3rd workspace
+for_window [class="Code"] move container to workspace number 3; workspace 3
 
 ## Toggle Keys Configuration ##
 
@@ -142,7 +155,7 @@ middle_emulation enabled
 ## Basics:
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -157,8 +170,9 @@ middle_emulation enabled
     bindsym $mod+n exec $files
 
     # Launch browser
-    bindsym $mod+x exec $browser
-
+    bindsym $mod+x exec $profile1
+	bindsym $mod+z exec $profile2
+	
     # Launch Telegram
     bindsym $mod+t exec $telegram
 
@@ -176,7 +190,6 @@ middle_emulation enabled
 
     # Opens a window in Floating mode
     # for_window [app_id="Alacritty"] floating enable
-    for_window [app_id="yad"] floating enable
 
 	# Exec btconnect script
 	bindsym $mod+b exec $bt
@@ -207,13 +220,30 @@ middle_emulation enabled
 	bindsym XF86AudioNext exec playerctl next
 	bindsym XF86AudioPrev exec playerctl previous
 
+	## Exec Playerctl Commands
+	bindsym Ctrl+period exec $next
+	bindsym Ctrl+comma exec $previous
+	bindsym Ctrl+space exec $pause
+	
 ## Moving around:
 
+	# Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    
     # Move your focus around
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
     bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
 
     # Move the focused window
     bindsym $mod+Shift+Left move left
@@ -251,13 +281,34 @@ middle_emulation enabled
     # We just use 1-10 as the default.
 
     # Move windows to next workspace
-    bindsym $mod+Control+A move container to workspace prev; workspace prev
-    bindsym $mod+Control+D move container to workspace next; workspace next
+    bindsym Alt+j move container to workspace prev; workspace prev
+    bindsym Alt+k move container to workspace next; workspace next
 
-	# Cycle through workspaces
+    ## Move windows to next/prev workspaces
+    bindsym $mod+Ctrl+k exec $next-workspace-move
+    bindsym $mod+Ctrl+j exec $prev-workspace-move
+    
+    ## Switch next/prev workspaces
+    bindsym Alt+Shift+right workspace next_on_output
+    bindsym Alt+Shift+left workspace prev_on_output
+
+	# Cycle between workspaces
     bindsym $mod+tab workspace next_on_output
 
+    # Cycle through workspaces
+    bindsym Alt+tab workspace next_on_output
 
+## Scratchpad:
+
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
         
 ## Layout stuff:
 
