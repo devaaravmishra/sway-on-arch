@@ -45,6 +45,11 @@ set $bt alacritty -e ~/.config/sway/scripts/btconnect.sh
 # Toggle Colorschemes
 set $colors alacritty -e ~/.config/sway/scripts/theme-switcher.sh
 
+## Player
+set $next playerctl next
+set $previous playerctl previous
+set $pause playerctl play-pause
+
 # Set wallpaper
 set $wall alacritty -e sxiv -t ~/Pictures/Wallpapers
 
