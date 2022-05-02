@@ -7,7 +7,6 @@
 
     to {
         color: @base08;
-        background-color: @base03;
     }
 }
 
@@ -18,7 +17,6 @@
 
     to {
         color: @base07;
-        background-color: @base01;
     }
 }
 
@@ -47,8 +45,8 @@ window#waybar.hidden {
 
 #battery,
 #clock,
-#module-media,
-#module-spotify,
+#custom-media,
+#custom-spotify,
 #memory,
 #network,
 #pulseaudio,
@@ -138,13 +136,13 @@ tooltip {
     color: @base03;
 }
 
-#module-media, #module-spotify {
+#custom-media, #custom-spotify {
     min-width: 100px;
     color: @base0A;
     font-family: Inter V;
 }
 
-#module-media{
+#custom-media{
 	color: @base0D;
 }
 
