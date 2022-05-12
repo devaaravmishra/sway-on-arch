@@ -101,8 +101,8 @@ font pango: Inter:style=Regular 11:
 output * bg /home/am/Pictures/Wallpapers/29.png fill
 
 # Brightness configuration
-bindsym --locked XF86MonBrightnessUp exec light -A 5 | light | cut -d '.' -f 1 | ~/.config/sway/scripts/notify.sh brightness
-bindsym --locked XF86MonBrightnessDown exec light -U 5 | light | cut -d '.' -f 1 | ~/.config/sway/scripts/notify.sh brightness
+ bindsym XF86MonBrightnessUp exec brightnessctl set +5% | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
 
 # Idle configuration 
 
@@ -129,7 +129,7 @@ for_window [app_id=".*"] inhibit_idle fullscreen
 
 # Move MPV/Spotify window to specific workspace  Always.
 for_window [app_id="mpv"] move container to workspace 3; workspace 3
-for_window [app_id="spotify"] move container to workspace 3; workspace 3
+for_window [class="spotify"] move container to workspace 3; workspace 3
 
 # Move VS Code to 3rd workspace
 for_window [class="Code"] move container to workspace number 3; workspace 3
@@ -226,9 +226,9 @@ middle_emulation enabled
 	bindsym XF86AudioPrev exec playerctl previous
 
 	## Exec Playerctl Commands
-	bindsym Ctrl+period exec $next
-	bindsym Ctrl+comma exec $previous
-	bindsym Ctrl+space exec $pause
+	bindsym Mod1+period exec $next
+	bindsym Mod1+comma exec $previous
+	bindsym Mod1+space exec $pause
 	
 ## Moving around:
 
@@ -294,26 +294,22 @@ middle_emulation enabled
     bindsym $mod+Ctrl+j exec $prev-workspace-move
     
     ## Switch next/prev workspaces
-    bindsym Alt+Shift+right workspace next_on_output
-    bindsym Alt+Shift+left workspace prev_on_output
+    bindsym Mod1+Shift+$right workspace next_on_output
+    bindsym Mod1+Shift+$left workspace prev_on_output
 
 	# Cycle between workspaces
     bindsym $mod+tab workspace next_on_output
 
     # Cycle through workspaces
-    bindsym Alt+tab workspace next_on_output
+    bindsym Alt+tab workspace back_and_forth
 
 ## Scratchpad:
 
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    bindsym $mod+Shift+s move scratchpad
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
+    # Cycle through multiple scratchpad windows.
+    bindsym $mod+s scratchpad show
         
 ## Layout stuff:
 
