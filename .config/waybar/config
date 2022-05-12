@@ -34,7 +34,7 @@
     // Module for application running
     "tray": {
         "spacing": 5,
-        "icon-size": 13
+        "icon-size": 14
     },
     
     // Clock Module
@@ -50,7 +50,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}{capacity}%",
+        "format": "{icon} {capacity}%",
         "format-charging": " {capacity}%",
         "format-plugged": "  {capacity}%",
         "format-alt": "{time} {icon}",
