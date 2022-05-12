@@ -65,7 +65,7 @@ schemes:
   ## Custom ##
   custom: &custom
     primary:
-     background: '0x141414'
+     background: '0x201c1c'
      foreground: '0xffffff'
 
     cursor:
@@ -266,7 +266,7 @@ schemes:
 # *Monokai
 # *OneDark
 # *PaleNight
-colors: *dracula
+colors: *custom
 
 
 
