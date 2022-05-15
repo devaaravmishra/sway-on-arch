@@ -1,4 +1,4 @@
-@import "colorschemes/custom.css";
+@import "colorschemes/onedark.css";
 
 @keyframes blink-warning {
     70% {
@@ -45,15 +45,15 @@ window#waybar.hidden {
 
 #battery,
 #clock,
-#custom-media,
-#custom-spotify,
+#onedark-media,
+#onedark-spotify,
 #memory,
 #network,
 #pulseaudio,
 #window,
 #tray {
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
 }
 
 #memory{
@@ -98,8 +98,13 @@ window#waybar.hidden {
 }
 
 tooltip { 
-	border-radius: 5px; 
-} 
+	border-radius: 5px;
+	background-color: #262626; 
+}
+ 
+tooltip label {
+	padding: 5px;
+}
 
 /* Workspaces stuff */
 
@@ -120,7 +125,6 @@ tooltip {
 #network {
     color:@base02;
     font-size: 14px;
-
 }
 
 #battery {
@@ -129,20 +133,17 @@ tooltip {
 
 #network.format-disconnected{
     color: @base02;
+    font-size: 14px;
 }
 
 #memory {
     color: @base03;
 }
 
-#custom-media, #custom-spotify {
-    min-width: 100px;
-    color: @base0A;
-    font-family: Inter V;
-}
-
 #custom-media{
-	color: @base0D;
+    min-width: 100px;
+    color: @base0E;
+    font-family: Inter;
 }
 
 #clock{
@@ -151,10 +152,12 @@ tooltip {
 
 #pulseaudio {
     color: @base09;
+    font-size: 13px;
 }
 
 #pulseaudio.muted {
     color: @base09;
+    font-size: 14px;
 }
 
 #pulseaudio.source-muted {

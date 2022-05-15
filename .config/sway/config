@@ -1,5 +1,5 @@
-### Variables ###
-
+													  #### VARIABLES ####
+														
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
@@ -10,8 +10,7 @@ set $up k
 set $right l
 
 
-
-### Applications ###
+## Applications
 
 # Terminal 
 set $term alacritty
@@ -19,8 +18,7 @@ set $term alacritty
 # File Manager
 set $files nautilus
 
-# Browser 
-
+# Firefox
 # Default Profile
 set $profile1 firefox 				
 
@@ -28,48 +26,53 @@ set $profile1 firefox
 set $profile2 firefox -P default-release	
 
 # VS Code
-set $code code
+set $code code --enable-features=UseOzonePlatform --ozone-platform=wayland
 
 # Telegram
 set $telegram telegram-desktop
 
 # Menu Wofi
-set $menu exec wofi --width=450
+set $menu exec wofi --show=drun --line=5 --width=600 --columns=2 --hide-scroll --sort-order=alphabetical
 
 # Power Menu (wofi)
-set $power "bash ~/.config/sway/scripts/powerctrl.sh"
+set $power "bash ~/.config/wofi/scripts/powermenu/powerctrl.sh"
 
 # Bluetooth script
-set $bt alacritty -e ~/.config/sway/scripts/btconnect.sh
+set $bt "bash ~/.config/wofi/scripts/bluetooth/bluetooth.sh"
 
 # Toggle Colorschemes
-set $colors alacritty -e ~/.config/sway/scripts/theme-switcher.sh
+set $colors alacritty --class 'theme' -e  ~/.config/sway/scripts/theme-switcher.sh
+
+# Connect wifi
+set $connect alacritty --class 'nmtui' -e nmtui-connect
+
+# Music (CMUS)
+set $music alacritty --class 'cmus' -e cmus
 
 ## Player
 set $next playerctl next
 set $previous playerctl previous
 set $pause playerctl play-pause
 
-# Set wallpaper
-set $wall alacritty -e sxiv -t ~/Pictures/Wallpapers
-
 ## Workspaces
 set $next-workspace-move ~/.config/sway/scripts/move-next-workspace
 set $prev-workspace-move ~/.config/sway/scripts/move-prev-workspace
 
 
-### Window configuration ###
+													#### DECORATION ####
+### Window gaps
 
 smart_gaps on
 gaps inner 10
 
-## Window borders ##
+
+## Window borders
 
 # Disable window title bar
 default_border pixel 2
 smart_borders off
 
-## Window decoration ##
+## Window decoration
 
 # class            		border   backgr.   text     indicator  child_border
 client.focused     		#00ffff  #00ffff   #ffffff  #00ffff    #00ffff
@@ -77,13 +80,15 @@ client.unfocused   		#212121  #212121   #f0f0f0  #212121    #212121
 client.focused_inactive #212121  #212121   #f0f0f0  #212121    #212121
 
 
-## Autostart ##
+														#### STARTUP ####
+
+## Autostart
 exec --no-startup-id dunst
 
-# Autotiling
+## Autotiling
 exec autotiling-rs
 
-# GTK Settings
+## GTK Settings
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
@@ -94,19 +99,20 @@ exec_always {
     gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Font 11'
 }
 
-# Font configuration
+
+													#### CONFIGURATION ####
+													
+## Font configuration
 font pango: Inter:style=Regular 11:
 
-# Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/29.png fill
+## Wallpaper configuration
+output * bg /home/am/Pictures/Wallpapers/34.png fill
 
-# Brightness configuration
+## Brightness configuration
  bindsym XF86MonBrightnessUp exec brightnessctl set +5% | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
 
-# Idle configuration 
-
-# Line 73 To Pause any Playing Media before sleep
+## Idle configuration 
 exec swayidle -w \
   	timeout 300 'swaylock -f' \
   	timeout 600 'swaymsg "output * dpms off"' \
@@ -114,9 +120,6 @@ exec swayidle -w \
         before-sleep 'playerctl pause'\
   	before-sleep 'swaylock -f'
 
-# Enable xWayland support
-xwayland enable
-	
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
 
@@ -125,18 +128,24 @@ for_window [class=".*"] inhibit_idle fullscreen
 for_window [app_id=".*"] inhibit_idle fullscreen
 
 
-## Control flow ##
-
-# Move MPV/Spotify window to specific workspace  Always.
-for_window [app_id="mpv"] move container to workspace 3; workspace 3
-for_window [class="spotify"] move container to workspace 3; workspace 3
-
-# Move VS Code to 3rd workspace
+## Window configuration
+for_window [app_id="mpv"] exec $next-workspace-move
+for_window [app_id="zathura"] exec $next-workspace-move
 for_window [class="Code"] move container to workspace number 3; workspace 3
 
-## Toggle Keys Configuration ##
 
-#Initially enable NumLock
+## Floating windows
+for_window [app_id="theme"] floating enable
+for_window [app_id="cmus"] floating enable
+for_window [app_id="nmtui"] floating enable
+for_window [app_id="cmus"] floating enable
+for_window [app_id="bluetooth"] floating enable
+# for_window [app_id="Alacritty"] floating enable
+    
+
+## Keys Configuration
+
+# Initially enable NumLock
 input * xkb_numlock enable
 
 # Swap caps & escape key
@@ -154,10 +163,9 @@ natural_scroll enabled
 middle_emulation enabled
 }
 
+													#### KEY BINDINGS ####
 
-### Key bindings ###
-
-## Basics:
+## Basic:
 
     # Kill focused window
     bindsym $mod+q kill
@@ -172,7 +180,7 @@ middle_emulation enabled
     bindsym $mod+c exec $code
 
     # Launch Files
-    bindsym $mod+n exec $files
+    bindsym $mod+e exec $files
 
     # Launch browser
     bindsym $mod+x exec $profile1
@@ -180,7 +188,7 @@ middle_emulation enabled
 	
     # Launch Telegram
     bindsym $mod+t exec $telegram
-
+    
     # Launch Power Menu
     bindsym $mod+p exec $power
 
@@ -192,21 +200,34 @@ middle_emulation enabled
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m	
+	
+	# Connect to wifi
+	bindsym $mod+n exec $connect
 
-    # Opens a window in Floating mode
-    # for_window [app_id="Alacritty"] floating enable
-
-	# Exec btconnect script
+	# Exec bluetooth script
 	bindsym $mod+b exec $bt
 
 	# Exec theme-swticher script
-	bindsym $mod+Shift+t exec $colors
+	bindsym $mod+y exec $colors
 	
-	# Set Wallpaper
-	bindsym $mod+Shift+w exec $wall
+	# Launch CMUS
+	bindsym $mod+w exec $music
 
+	# Multimedia Keys
+	bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/scripts/notify.sh muted
+	bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/scripts/notify.sh audio
+	bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/scripts/notify.sh audio
+	bindsym XF86AudioPlay exec playerctl play-pause
+	bindsym XF86AudioNext exec playerctl next
+	bindsym XF86AudioPrev exec playerctl previous
 
-	## Screenshot
+	# Exec Playerctl Commands
+	bindsym Mod1+period exec $next
+	bindsym Mod1+comma exec $previous
+	bindsym Mod1+space exec $pause
+	
+
+## Screenshot:
 
 	# Take a screenshot of size
 	bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
@@ -217,19 +238,6 @@ middle_emulation enabled
 	# Take a screenshot of size and copy to clipboard
 	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot captured to clipboard!"
 
-	# Multimedia Keys
-	bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/scripts/notify.sh muted
-	bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/scripts/notify.sh audio
-	bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/scripts/notify.sh audio
-	bindsym XF86AudioPlay exec playerctl play-pause
-	bindsym XF86AudioNext exec playerctl next
-	bindsym XF86AudioPrev exec playerctl previous
-
-	## Exec Playerctl Commands
-	bindsym Mod1+period exec $next
-	bindsym Mod1+comma exec $previous
-	bindsym Mod1+space exec $pause
-	
 ## Moving around:
 
 	# Move your focus around
@@ -282,18 +290,15 @@ middle_emulation enabled
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
 
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
-
     # Move windows to next workspace
     bindsym Alt+j move container to workspace prev; workspace prev
     bindsym Alt+k move container to workspace next; workspace next
 
-    ## Move windows to next/prev workspaces
+    # Move windows to next/prev workspaces
     bindsym $mod+Ctrl+k exec $next-workspace-move
     bindsym $mod+Ctrl+j exec $prev-workspace-move
     
-    ## Switch next/prev workspaces
+    # Switch next/prev workspaces
     bindsym Mod1+Shift+$right workspace next_on_output
     bindsym Mod1+Shift+$left workspace prev_on_output
 
@@ -330,23 +335,23 @@ middle_emulation enabled
 
 ## Resizing containers:
 
-mode "resize" {
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+	mode "resize" {
+   		 bindsym Left resize shrink width 10px
+         bindsym Down resize grow height 10px
+    	 bindsym Up resize shrink height 10px
+    	 bindsym Right resize grow width 10px
 
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym Ctrl+Shift+r mode "resize"
+	bindsym Ctrl+Shift+r mode "resize"
 
 
 ## Status Bar:
 
-bar {
-	swaybar_command waybar
+	bar {
+		swaybar_command waybar
     }
 
 include /etc/sway/config.d/*

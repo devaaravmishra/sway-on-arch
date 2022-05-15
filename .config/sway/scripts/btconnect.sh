@@ -7,7 +7,7 @@ if [ "$1" == "--help" ]; then
     exit 0;
 fi
 
-var="$(bluetoothctl paired-devices | grep '' | cut -d' ' -f3- | nl -w2 -s': ' | fzf --prompt "bluetooth ")"
+var="$(bluetoothctl paired-devices | grep '' | cut -d' ' -f3- | nl -w2 -s': ' | fzf --prompt "bluetooth" )"
 
 index="$(echo $var | grep '' | cut -d':' -f1)"
 

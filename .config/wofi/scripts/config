@@ -5,4 +5,5 @@ term=alacritty
 insensitive=true
 location=center
 no_actions=true
-prompt=
+prompt=search
+hide_search=true

@@ -1,6 +1,7 @@
 #!/bin/sh
 
 #!/usr/bin/env bash
+current_theme="$(grep '@import' ~/.config/waybar/style.css | cut -d'/' -f2- | cut -d'.' -f1)"
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     echo -e "\n\t--This script can switch color schemes with given choice of colors your configs contains."
@@ -15,14 +16,13 @@ if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
     exit 0;
 fi
 
-selected="$(ls ~/.config/waybar/colorschemes |  cut -d' ' -f11- | cut -d'.' -f1 | fzf --prompt "Select Theme ")"
+selected="$(ls ~/.config/waybar/colorschemes |  cut -d' ' -f11- | cut -d'.' -f1 | fzf --prompt " (applied: $current_theme) select theme:  ")"
 
 if [ "$selected" == "" ];
 then
 	echo 'Selection terminated, No theme applied!'
 	exit 0;
 else
-	current_theme="$(grep '@import' ~/.config/waybar/style.css | cut -d'/' -f2- | cut -d'.' -f1)"
 	sed -i "s/${current_theme}/${selected}/" ~/.config/waybar/style.css && sway reload && \
 	sed -i "/colors:/c\colors: *${selected}" ~/.config/alacritty/alacritty.yml && \
 	notify-send "${selected^} theme applied!"
