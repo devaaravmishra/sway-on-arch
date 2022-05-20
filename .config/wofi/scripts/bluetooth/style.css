@@ -1,9 +1,10 @@
 window {
 	margin: 15px;
-	background-color: #151515;
-	color: #fff; 
+	background-color: #2E3440;
+	color: #E5E9F0;
 	border-radius: 10px;
-	font-family: "Inter"
+	font-family: "Inter";;
+	border: 2px solid #81a1c1;
 }
 
 #entry {
@@ -13,7 +14,7 @@ window {
 #entry:selected {
 	border-radius: 5px;
 	border: none;
-	background-color: #5BB462;
+	background-color: #434C5E;
 }
 
 #inner-box {
@@ -32,5 +33,5 @@ window {
 }
 
 #text:selected {
-	color: #212121;
+	color: #81a1c1;
 }

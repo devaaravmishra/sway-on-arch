@@ -1,69 +1,42 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
+## Alacritty, the GPU enhanced terminal emulator.
 
 env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 
 
-# Font configuration
 font:
-  #Normal font face
   normal:
-    # Font family
-    
     family: JetBrainsMono Nerd Font
-    # The `style` can be specified to pick a specific face.
     style: Regular
 
-  # Bold font face
   bold:
-    # Font family
     family: JetBrainsMono Nerd Font
-    # The `style` can be specified to pick a specific face.
     style: Bold
 
-  # Italic font face
   italic:
-    # Font family
     family: JetBrainsMono Nerd Font
     
-    # The `style` can be specified to pick a specific face.
     style: Italic
 
-  # Bold italic font face
   bold_italic:
-    # Font family
     family: JetBrainsMono Nerd Font
-    # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
-  # Foint size
   size: 12.0
 
-  # Offset is the extra space around each character. `offset.y` can be thought
-  # of as modifying the line spacing, and `offset.x` as modifying the letter
-  # spacing.
   offset:
     x: 0
     y: 0
 
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the
-  # right, increasing `y` moves the glyph upward.
   glyph_offset:
     x: 0
     y: 0
 
+
 ### Color Schemes ###
 schemes:
 
-  ## Custom ##
-  custom: &custom
+  basic: &basic
     primary:
      background: '0x201c1c'
      foreground: '0xffffff'
@@ -72,7 +45,6 @@ schemes:
      text: '0xffffff'
      cursor: '0xffffff' 
 
-  # Normal colors
     normal:
      black:   '0x3f3f3f'
      red:     '0xff0883'
@@ -83,7 +55,6 @@ schemes:
      cyan:    '0x08ff83'
      white:   '0xbebebe'
       
-  # Bright colors
     bright:
      black:   '0x474747'
      red:     '0xff1e8e'
@@ -93,108 +64,9 @@ schemes:
      magenta: '0xadc1ff'
      cyan:    '0x1eff8e'
      white:   '0xc4c4c4'
-
-  ## Dracula ##
-  dracula: &dracula
-    # Default colors
-    primary:
-     background: '0x282936'
-     foreground: '0xe9e9f4'
-
-    cursor:
-     text: '0x282936'
-     cursor: '0xe9e9f4'
-
-  # Normal colors
-    normal:
-     black:   '0x282936'
-     red:     '0xea51b2'
-     green:   '0xebff87'
-     yellow:  '0x00f769'
-     blue:    '0x62d6e8'
-     magenta: '0xb45bcf'
-     cyan:    '0xa1efe4'
-     white:   '0xe9e9f4'
-
-  # Bright colors
-    bright:
-     black:   '0x626483'
-     red:     '0xea51b2'
-     green:   '0xebff87'
-     yellow:  '0x00f769'
-     blue:    '0x62d6e8'
-     magenta: '0xb45bcf'
-     cyan:    '0xa1efe4'
-     white:   '0xf7f7fb'
-
-  monokai: &monokai
-   # Default colors
-   primary:
-    background: '0x1c1c1c'
-    foreground: '0xf8f8f2'
-
-   cursor:
-    text: '0x272822'
-    cursor: '0xf8f8f2'
-
-   # Normal colors
-   normal:
-    black:   '0x272822'
-    red:     '0xf92672'
-    green:   '0xa6e22e'
-    yellow:  '0xf4bf75'
-    blue:    '0x66d9ef'
-    magenta: '0xae81ff'
-    cyan:    '0xa1efe4'
-    white:   '0xf8f8f2'
-
-   # Bright colors
-   bright:
-    black:   '0x75715e'
-    red:     '0xf92672'
-    green:   '0xa6e22e'
-    yellow:  '0xf4bf75'
-    blue:    '0x66d9ef'
-    magenta: '0xae81ff'
-    cyan:    '0xa1efe4'
-    white:   '0xf9f8f5'
-
-  ## OneDark ##
-  ondark: &onedark         
-   # Default colors
-    primary:
-     background: '0x282c34'
-     foreground: '0xabb2bf'
-
-    cursor:
-     text: '0x282c34'
-     cursor: '0xabb2bf'
-
-    # Normal colors
-    normal:
-     black:   '0x282c34'
-     red:     '0xe06c75'
-     green:   '0x98c379'
-     yellow:  '0xe5c07b'
-     blue:    '0x61afef'
-     magenta: '0xc678dd'
-     cyan:    '0x56b6c2'
-     white:   '0xabb2bf'
-
-    # Bright colors
-    bright:
-     black:   '0x545862'
-     red:     '0xe06c75'
-     green:   '0x98c379'
-     yellow:  '0xe5c07b'
-     blue:    '0x61afef'
-     magenta: '0xc678dd'
-     cyan:    '0x56b6c2'
-     white:   '0xc8ccd4'
+ 
      
-  ## PaleNight ##
   palenight: &palenight
-    # Default colors
     primary:
      background: '0x292d3e'
      foreground: '0x959dcb'
@@ -203,7 +75,6 @@ schemes:
      text: '0x292d3e'
      cursor: '0x959dcb'
 
-   # Normal colors
     normal:
      black:   '0x292d3e'
      red:     '0xf07178'
@@ -214,7 +85,6 @@ schemes:
      cyan:    '0x89ddff'
      white:   '0x959dcb'
 
-  # Bright colors
     bright:
      black:   '0x676e95'
      red:     '0xf07178'
@@ -225,41 +95,101 @@ schemes:
      cyan:    '0x89ddff'
      white:   '0xffffff'      
 
+  everforest: &everforest
+    primary:
+     background: '#2b3339'
+     foreground: '#d3c6aa'
+
+    normal:
+     black:   '#4b565c'
+     red:     '#e67e80'
+     green:   '#a7c080'
+     yellow:  '#dbbc7f'
+     blue:    '#7fbbb3'
+     magenta: '#d699b6'
+     cyan:    '#83c092'
+     white:   '#d3c6aa'
+
+    bright:
+     black:   '#4b565c'
+     red:     '#e67e80'
+     green:   '#a7c080'
+     yellow:  '#dbbc7f'
+     blue:    '#7fbbb3'
+     magenta: '#d699b6'
+     cyan:    '#83c092'
+     white:   '#d3c6aa'
+
+  nord: &nord
+    primary:
+     background: '#2e3440'
+     foreground: '#d8dee9'
+
+    cursor:
+     text:    '#2e3440'
+     cursor:  '#d8dee9'
+
+    normal:
+     black:   '#3b4252'
+     red:     '#bf616a'
+     green:   '#a3be8c'
+     yellow:  '#ebcb8b'
+     blue:    '#81a1c1'
+     magenta: '#b48ead'
+     cyan:    '#88c0d0'
+     white:   '#e5e9f0'
+
+    bright:
+      black:   '#4c566a'
+      red:     '#bf616a'
+      green:   '#a3be8c'
+      yellow:  '#ebcb8b'
+      blue:    '#81a1c1'
+      magenta: '#b48ead'
+      cyan:    '#8fbcbb'
+      white:   '#eceff4'
+
+  catppuccin: &catppuccin
+   primary:
+     background: '0x1E1D2F'
+     foreground: '0xD9E0EE'
+
+   cursor:
+     text: '0x1E1D2F'
+     cursor: '0xF5E0DC'
+
+   normal:
+     black:   '0x6E6C7E'
+     red:     '0xF28FAD'
+     green:   '0xABE9B3'
+     yellow:  '0xFAE3B0'
+     blue:    '0x96CDFB'
+     magenta: '0xF5C2E7'
+     cyan:    '0x89DCEB'
+     white:   '0xD9E0EE'
+
+   bright:
+     black:   '0x988BA2'
+     red:     '0xF28FAD'
+     green:   '0xABE9B3'
+     yellow:  '0xFAE3B0'
+     blue:    '0x96CDFB'
+     magenta: '0xF5C2E7'
+     cyan:    '0x89DCEB'
+     white:   '0xD9E0EE' 
 
 # Available themes are:
-# *Custom
-# *Dracula
-# *Monokai
-# *OneDark
+# *Basic
+# *Catppuccin
 # *PaleNight
-colors: *onedark
-
-
-
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-#background_opacity: 1.0
+# *Everforest
+# *Nord
+colors: *nord
 
 
 cursor:
-  # Cursor style
   style:
-    # Cursor shape
-    # Values for `shape`:
-    #   - ▇ Block
-    #  - _ Underline
-    #   - | Beam
     shape: Block
-
-    #Cursor blinking state
-    #
-    # Values for `blinking`:
-    #   - Never: Prevent the cursor from ever blinking
-    #   - Off: Disable blinking by default
-    #   - On: Enable blinking by default
-    #   - Always: Force the cursor to always blink
     blinking: on
     blinking_interval: 750
 

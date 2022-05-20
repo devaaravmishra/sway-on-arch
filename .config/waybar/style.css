@@ -1,4 +1,4 @@
-@import "colorschemes/onedark.css";
+@import "colorschemes/nord.css"; 
 
 @keyframes blink-warning {
     70% {
@@ -25,7 +25,7 @@
     min-height: 0;
     font-weight: bold;
     padding: 1px 2px 2px 2px; 
-    font-family: "Inter Nerd Font", "JetbrainsMono Nerd Font";
+    font-family: "JetbrainsMono Nerd Font";
     font-size: 13px; 
 }
 
@@ -45,8 +45,8 @@ window#waybar.hidden {
 
 #battery,
 #clock,
-#onedark-media,
-#onedark-spotify,
+#nord-media,
+#nord-spotify,
 #memory,
 #network,
 #pulseaudio,
@@ -143,7 +143,6 @@ tooltip label {
 #custom-media{
     min-width: 100px;
     color: @base0E;
-    font-family: Inter;
 }
 
 #clock{
@@ -152,12 +151,12 @@ tooltip label {
 
 #pulseaudio {
     color: @base09;
-    font-size: 13px;
 }
 
 #pulseaudio.muted {
     color: @base09;
     font-size: 14px;
+    margin-right: 0.4em;
 }
 
 #pulseaudio.source-muted {
@@ -171,3 +170,5 @@ tooltip label {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
 }
+
+
