@@ -1,5 +1,6 @@
-													  #### VARIABLES ####
-														
+include ~/.config/sway/colorschemes/nord.config
+#### VARIABLES ####
+
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
@@ -12,7 +13,7 @@ set $right l
 
 ## Applications
 
-# Terminal 
+# Terminal
 set $term alacritty
 
 # File Manager
@@ -20,13 +21,13 @@ set $files nautilus
 
 # Firefox
 # Default Profile
-set $profile1 firefox 				
+set $profile1 firefox
 
 # ALt Profile
-set $profile2 firefox -P default-release	
+set $profile2 firefox -P default-release
 
 # VS Code
-set $code code --enable-features=UseOzonePlatform --ozone-platform=wayland
+set $code code
 
 # Telegram
 set $telegram telegram-desktop
@@ -59,7 +60,7 @@ set $next-workspace-move ~/.config/sway/scripts/move-next-workspace
 set $prev-workspace-move ~/.config/sway/scripts/move-prev-workspace
 
 
-													#### DECORATION ####
+#### DECORATION ####
 ### Window gaps
 
 smart_gaps on
@@ -74,13 +75,16 @@ smart_borders off
 
 ## Window decoration
 
-# class            		border   backgr.   text     indicator  child_border
-client.focused     		#00ffff  #00ffff   #ffffff  #00ffff    #00ffff
-client.unfocused   		#212121  #212121   #f0f0f0  #212121    #212121
-client.focused_inactive #212121  #212121   #f0f0f0  #212121    #212121
+# Property Name         Border  BG      Text    Indicator Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.background       $base07
 
 
-														#### STARTUP ####
+#### STARTUP ####
 
 ## Autostart
 exec --no-startup-id dunst
@@ -100,25 +104,25 @@ exec_always {
 }
 
 
-													#### CONFIGURATION ####
-													
+#### CONFIGURATION ####
+
 ## Font configuration
 font pango: Inter:style=Regular 11:
 
 ## Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/34.png fill
+output * bg /home/am/Pictures/Wallpapers/38.png fill
 
 ## Brightness configuration
- bindsym XF86MonBrightnessUp exec brightnessctl set +5% | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
 
-## Idle configuration 
+## Idle configuration
 exec swayidle -w \
-  	timeout 300 'swaylock -f' \
-  	timeout 600 'swaymsg "output * dpms off"' \
-  		resume 'swaymsg "output * dpms on"' \
-        before-sleep 'playerctl pause'\
-  	before-sleep 'swaylock -f'
+timeout 300 'swaylock -f' \
+timeout 600 'swaymsg "output * dpms off"' \
+resume 'swaymsg "output * dpms on"' \
+before-sleep 'playerctl pause'\
+before-sleep 'swaylock -f'
 
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
@@ -141,7 +145,7 @@ for_window [app_id="nmtui"] floating enable
 for_window [app_id="cmus"] floating enable
 for_window [app_id="bluetooth"] floating enable
 # for_window [app_id="Alacritty"] floating enable
-    
+
 
 ## Keys Configuration
 
@@ -149,209 +153,205 @@ for_window [app_id="bluetooth"] floating enable
 input * xkb_numlock enable
 
 # Swap caps & escape key
-	input * {
-		xkb_options caps:swapescape
-    }
+input * {
+    xkb_options caps:swapescape
+}
 
 
 ## Input configuration (Touchpad)
 
 input "2:7:SynPS/2_Synaptics_TouchPad" {
-dwt enabled
-tap enabled
-natural_scroll enabled
-middle_emulation enabled
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
 }
 
-													#### KEY BINDINGS ####
+#### KEY BINDINGS ####
 
 ## Basic:
 
-    # Kill focused window
-    bindsym $mod+q kill
+# Kill focused window
+bindsym $mod+q kill
 
-    # Start a terminal
-    bindsym $mod+Return exec $term
+# Start a terminal
+bindsym $mod+Return exec $term
 
-    # Start your launcher
-    bindsym $mod+d exec $menu
+# Start your launcher
+bindsym $mod+d exec $menu
 
-    # Start code
-    bindsym $mod+c exec $code
+# Start code
+bindsym $mod+c exec $code
 
-    # Launch Files
-    bindsym $mod+e exec $files
+# Launch Files
+bindsym $mod+e exec $files
 
-    # Launch browser
-    bindsym $mod+x exec $profile1
-	bindsym $mod+z exec $profile2
-	
-    # Launch Telegram
-    bindsym $mod+t exec $telegram
-    
-    # Launch Power Menu
-    bindsym $mod+p exec $power
+# Launch browser
+bindsym $mod+x exec $profile1
+bindsym $mod+z exec $profile2
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    floating_modifier $mod normal
+# Launch Telegram
+bindsym $mod+t exec $telegram
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
+# Launch Power Menu
+bindsym $mod+p exec $power
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m	
-	
-	# Connect to wifi
-	bindsym $mod+n exec $connect
+# Drag floating windows by holding down $mod and left mouse button.
+floating_modifier $mod normal
 
-	# Exec bluetooth script
-	bindsym $mod+b exec $bt
+# Reload the configuration file
+bindsym $mod+Shift+c reload
 
-	# Exec theme-swticher script
-	bindsym $mod+y exec $colors
-	
-	# Launch CMUS
-	bindsym $mod+w exec $music
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m
 
-	# Multimedia Keys
-	bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/scripts/notify.sh muted
-	bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/scripts/notify.sh audio
-	bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/scripts/notify.sh audio
-	bindsym XF86AudioPlay exec playerctl play-pause
-	bindsym XF86AudioNext exec playerctl next
-	bindsym XF86AudioPrev exec playerctl previous
+# Connect to wifi
+bindsym $mod+n exec $connect
 
-	# Exec Playerctl Commands
-	bindsym Mod1+period exec $next
-	bindsym Mod1+comma exec $previous
-	bindsym Mod1+space exec $pause
-	
+# Exec bluetooth script
+bindsym $mod+b exec $bt
+
+# Exec theme-swticher script
+bindsym $mod+y exec $colors
+
+# Launch CMUS
+bindsym $mod+w exec $music
+
+# Multimedia Keys
+bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/scripts/notify.sh muted
+bindsym XF86AudioRaiseVolume exec ponymix increase 5 | ~/.config/sway/scripts/notify.sh audio
+bindsym XF86AudioLowerVolume exec ponymix decrease 5 | ~/.config/sway/scripts/notify.sh audio
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Exec Playerctl Commands
+bindsym Mod1+period exec $next
+bindsym Mod1+comma exec $previous
+bindsym Mod1+space exec $pause
+
 
 ## Screenshot:
 
-	# Take a screenshot of size
-	bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
-
-	# Take sreenshot of entire screen
-	bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
-
-	# Take a screenshot of size and copy to clipboard
-	bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot captured to clipboard!"
+bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
+bindsym Ctrl+Print exec grim - | wl-copy && notify-send "Screenshot copied to Clipboard!"
+bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
 
 ## Moving around:
 
-	# Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    
-    # Move your focus around
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+# Move your focus around
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
-    # Move the focused window
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Move the focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 ## Workspaces:
 
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
-    # Move windows to next workspace
-    bindsym Alt+j move container to workspace prev; workspace prev
-    bindsym Alt+k move container to workspace next; workspace next
+# Move windows to next workspace
+bindsym Alt+j move container to workspace prev; workspace prev
+bindsym Alt+k move container to workspace next; workspace next
 
-    # Move windows to next/prev workspaces
-    bindsym $mod+Ctrl+k exec $next-workspace-move
-    bindsym $mod+Ctrl+j exec $prev-workspace-move
-    
-    # Switch next/prev workspaces
-    bindsym Mod1+Shift+$right workspace next_on_output
-    bindsym Mod1+Shift+$left workspace prev_on_output
+# Move windows to next/prev workspaces
+bindsym $mod+Ctrl+k exec $next-workspace-move
+bindsym $mod+Ctrl+j exec $prev-workspace-move
 
-	# Cycle between workspaces
-    bindsym $mod+tab workspace next_on_output
+# Switch next/prev workspaces
+bindsym Mod1+Shift+$right workspace next_on_output
+bindsym Mod1+Shift+$left workspace prev_on_output
 
-    # Cycle through workspaces
-    bindsym Alt+tab workspace back_and_forth
+# Cycle between workspaces
+bindsym $mod+tab workspace next_on_output
+
+# Cycle through workspaces
+bindsym Alt+tab workspace back_and_forth
 
 ## Scratchpad:
 
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+s move scratchpad
+# Move the currently focused window to the scratchpad
+bindsym $mod+Shift+s move scratchpad
 
-    # Cycle through multiple scratchpad windows.
-    bindsym $mod+s scratchpad show
-        
+# Cycle through multiple scratchpad windows.
+bindsym $mod+s scratchpad show
+
 ## Layout stuff:
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
+# Move focus to the parent container
+bindsym $mod+a focus parent
 
-	# Switch between layouts
-	bindsym $mod+Shift+x layout toggle split
+# Switch between layouts
+bindsym $mod+Shift+x layout toggle split
 
 ## Resizing containers:
 
-	mode "resize" {
-   		 bindsym Left resize shrink width 10px
-         bindsym Down resize grow height 10px
-    	 bindsym Up resize shrink height 10px
-    	 bindsym Right resize grow width 10px
-
+mode "resize" {
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+    
     # Return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-	bindsym Ctrl+Shift+r mode "resize"
+bindsym Ctrl+Shift+r mode "resize"
 
 
 ## Status Bar:
 
-	bar {
-		swaybar_command waybar
-    }
+bar {
+    swaybar_command waybar
+}
 
 include /etc/sway/config.d/*
