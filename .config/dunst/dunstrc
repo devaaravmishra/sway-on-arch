@@ -8,10 +8,8 @@
 
   frame_width = 0
   separator_height = 2
-  frame_color = "#96CDFB"
-  separator_color= "#96CDFB"
   sort = no
-  font = Inter Nerd Font 8
+  font = Jetbrains Mono 10
   markup = full
   format = "<b>%s</b>\n%b"
   alignment = left
@@ -30,32 +28,73 @@
   history_length = 6
   title = Dunst
   class = Dunst
-  corner_radius = 5
+  corner_radius = 6
 
   mouse_left_click = close_current
   mouse_middle_click = do_action
   mouse_right_click = close_all
 
   progress_bar = true  
-      progress_bar_height = 5
-      progress_bar_frame_width = 0  
-      progress_bar_min_width = 150
-      progress_bar_max_width = 300
-      indicate_hidden = yes
-      separator_height = 0
-      padding = 15
-      horizontal_padding = 10
-      text_icon_padding = 0
-      sort = yes
-      
+  progress_bar_height = 5
+  progress_bar_frame_width = 0  
+  progress_bar_min_width = 150
+  progress_bar_max_width = 300
+  indicate_hidden = yes
+  separator_height = 0
+  text_icon_padding = 0
+  sort = yes
+
+
+## Basic ##
+# frame_color = "#96CDFB"
+# separator_color= "#96CDFB"
+# [urgency_low]
+    # background = "#2c2c2c"
+    # foreground = "#D9E0EE"
+# 
+# [urgency_normal]
+    # background = "#2c2c2c"
+    # foreground = "#D9E0EE"
+# 
+# [urgency_critical]
+    # background = "#2c2c2c"
+    # foreground = "#D9E0EE"
+
+
+## Nord ##
+frame_color = "#E5E9F0"
+separator_color = "#E5E9F0"
+highlight = "#81a1c1"
+
 [urgency_low]
-    background = "#2c2c2c"
-    foreground = "#D9E0EE"
+    msg_urgency = low
+    background = "#3B4252"
+    foreground = "#4C566A"
 
 [urgency_normal]
-    background = "#2c2c2c"
-    foreground = "#D9E0EE"
+    msg_urgency = normal
+    background = "#434C5E"
+    foreground = "#E5E9F0"
 
 [urgency_critical]
-    background = "#2c2c2c"
-    foreground = "#D9E0EE"
+    msg_urgency = critical
+    background = "#88C0D0"
+    foreground = "#ECEFF4"
+
+
+## Catppuccin
+# frame_color = "#96CDFB"
+# separator_color= frame
+# 
+# [urgency_low]
+# background = "#1E1E2E"
+# foreground = "#D9E0EE"
+# 
+# [urgency_normal]
+# background = "#1E1E2E"
+# foreground = "#D9E0EE"
+# 
+# [urgency_critical]
+# background = "#1E1E2E"
+# foreground = "#D9E0EE"
+# frame_color = "#F8BD96"
