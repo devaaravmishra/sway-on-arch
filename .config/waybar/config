@@ -1,102 +1,101 @@
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    
-    // Order of modules to render
-    "modules-left": ["sway/workspaces", "custom/media","custom/spotify"],
-    "modules-center": ["clock"],
-    "modules-right": ["tray", "memory", "pulseaudio", "battery", "network"],
-    
-    // Modules configuration
-    
-    //Workspaces Module
-    "sway/workspaces": {
-         "disable-scroll": true,
-         "all-outputs": true,
-         "format": "{icon}",
-         "format-icons": {
-            "urgent": "",
-            "focused": "",
-            "default": ""
-         }
-     },
-    
-   // Memory Module
-    "memory": {
-         "format": "<span font='11'>{icon}</span> {used:0.1f}G",
-         "format-icons": {
-            "default": "﬙"
-         },
-         "interval": 1,
-         "tooltip-format": "Free: {avail:0.1f}G"
-     }, 
-
-    // Module for application running
-    "tray": {
-        "spacing": 5,
-        "icon-size": 14
-    },
-    
-    // Clock Module
-    "clock": {
-        "format": "{:%I:%M}",
-        "tooltip-format": "{:%a, %d %b}" 
-    },
-    
-	//Battery
-     "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": "  {capacity}%",
-        "format-alt": "{time} {icon}",
-        // "format-good": "{icon}\t{capacity}%", // An empty format will hide the module
-        // "format-full": "{icon}\t{capacity}%",
-        "format-icons": ["", "", "", "", ""]
-    },
-    
-    // Network Module
-    "network": {
-        // "interface": "wlan0",
-        "format-wifi":"",
-        "format-ethernet": "",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "",
-        "family": "ipv4",
-        "tooltip-format-wifi": "SSID: {essid}\nStrength: {signalStrength}%\n {bandwidthUpBits}  {bandwidthDownBits}",
-        "tooltip-format-ethernet": "SSID: {essid}\nIP: {ipaddr}"
-    },
-    
-    // Audio Module
-   "pulseaudio": {
-           "format": "<span font='10'>{icon}</span> {volume}%",
-           "format-bluetooth": " {volume}%",
-           "format-bluetooth-muted": "{format_source}",
-           "format-muted": "{format_source}",
-   		   "format-source": "",
-   		   "format-source-muted": "",
-           "max-length":10,
-           "on-click": "pavucontrol",
-           "format-icons": {
-          	    "headphone": "",
-            	"default": ["", "", ""],
-           } 	
-     },
-         
-    // Custom Module for playback
-		"custom/media": {
-	  	  "format": "{icon}{}",
-	  	  "format-icons": {
-	  	  	"Paused": "",
-	  	  	"Playing": ""
-	  	  },
-	  	  "return-type": "json",
-	  	  "max-length":30,
-	  	  "on-click": "playerctl play-pause",
-	  	  "exec": "playerctl --ignore-player=spotify metadata --format '{\"text\": \" {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
-	  }
+	"layer": "top",
+	"position": "top",
+	"modules-left": [
+		"sway/workspaces",
+		"custom/media",
+		"custom/spotify"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"tray",
+		"memory",
+		"pulseaudio",
+		"battery",
+		"network"
+	],
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+		"format-icons": {
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"memory": {
+		"format": "<span font='10'>{icon} </span>{used:0.1f}G",
+		"format-icons": {
+			"default": "﬙"
+		},
+		"interval": 1,
+		"tooltip-format": "Free: {avail:0.1f}G"
+	},
+	"tray": {
+		"spacing": 5,
+		"icon-size": 14
+	},
+	"clock": {
+		"format": "{:%I:%M}",
+		"tooltip-format": "{:%a, %d %b}"
+	},
+	"battery": {
+		"states": {
+			"good": 95,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "<span font='10'>{icon}</span> {capacity}%",
+		"format-charging": " {capacity}%",
+		"format-plugged": " {capacity}%",
+		"format-alt": "{time} {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"network": {
+		"format-wifi": "",
+		"format-ethernet": "",
+		"format-linked": "{ifname} (No IP) ",
+		"format-disconnected": "",
+		"family": "ipv4",
+		"tooltip-format-wifi": "SSID: {essid}\nStrength: {signalStrength}%\n {bandwidthUpBits}  {bandwidthDownBits}",
+		"tooltip-format-ethernet": "SSID: {essid}\nIP: {ipaddr}"
+	},
+	"pulseaudio": {
+		"format": "<span font='10'>{icon}</span> {volume}%",
+		"format-bluetooth": " {volume}%",
+		"format-bluetooth-muted": "{format_source}",
+		"format-muted": "{format_source}",
+		"format-source": "",
+		"format-source-muted": "",
+		"max-length": 10,
+		"on-click": "pavucontrol",
+		"format-icons": {
+			"headphone": "",
+			"default": [
+				"",
+				"",
+				""
+			]
+		}
+	},
+	"custom/media": {
+		"format": "{icon}{}",
+		"format-icons": {
+			"Paused": "",
+			"Playing": ""
+		},
+		"return-type": "json",
+		"max-length": 30,
+		"on-click": "playerctl play-pause",
+		"exec": "playerctl --ignore-player=spotify metadata --format '{\"text\": \" {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+	}
 }
