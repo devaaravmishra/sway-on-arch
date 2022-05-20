@@ -13,8 +13,8 @@ echo -e "\n======> Setting Wallpaper!"
 
 mkdir -p ${HOME}/Pictures
 
-cp -frv \
-	../Wallpapers \
-	${HOME}/Pictures/
+echo -e "\nGetting elegant wallpapers..."
+cd ${HOME}/Pictures/
+git clone https://gitlab.com/aaaravv/Wallpapers.git
 
 echo -e "\nSway On Arch installed... Reboot system for changes to take effect!"
