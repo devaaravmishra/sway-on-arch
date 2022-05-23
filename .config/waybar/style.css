@@ -45,8 +45,8 @@ window#waybar.hidden {
 
 #battery,
 #clock,
-#nord-media,
-#nord-spotify,
+#custom-media,
+#custom-spotify,
 #memory,
 #network,
 #pulseaudio,
@@ -140,8 +140,11 @@ tooltip label {
     color: @base03;
 }
 
+#custom-spotify {
+    color: @base0A;
+}
+
 #custom-media{
-    min-width: 100px;
     color: @base0E;
 }
 
