@@ -1,4 +1,5 @@
 include ~/.config/sway/colorschemes/nord.config
+
 #### VARIABLES ####
 
 # Logo key. Use Mod1 for Alt.
@@ -19,12 +20,9 @@ set $term alacritty
 # File Manager
 set $files nautilus
 
-# Firefox
-# Default Profile
-set $profile1 firefox
-
-# ALt Profile
-set $profile2 firefox -P default-release
+# Browser
+set $firefox firefox
+set $chrome google-chrome-stable
 
 # VS Code
 set $code code
@@ -45,7 +43,7 @@ set $bt "bash ~/.config/wofi/scripts/bluetooth/bluetooth.sh"
 set $colors alacritty --class 'theme' -e  ~/.config/sway/scripts/theme-switcher.sh
 
 # Connect wifi
-set $connect alacritty --class 'nmtui' -e nmtui-connect
+set $nmtui alacritty --class 'nmtui' -e nmtui-connect
 
 # Music (CMUS)
 set $music alacritty --class 'cmus' -e cmus
@@ -61,30 +59,29 @@ set $prev-workspace-move ~/.config/sway/scripts/move-prev-workspace
 
 
 #### DECORATION ####
-### Window gaps
 
+## Window gaps
 smart_gaps on
-gaps inner 10
+gaps inner 5
 
 
 ## Window borders
-
 # Disable window title bar
-default_border pixel 2
-smart_borders off
+default_border pixel 3
+default_floating_border none
+
 
 ## Window decoration
-
-# Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0D
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
-
+# Property Name          border   backgr.   text     indicator  child_border
+client.focused     		  $base08  $base08   $base07  $base08    $base08
+client.unfocused   		  $base06  $base00   $base07  $base00    $base00
+client.focused_inactive   $base06  $base00   $base07  $base00    $base00
+client.urgent             $base08  $base08   $base00  $base08    $base08
 
 #### STARTUP ####
+
+## Start xWayland
+xwayland enable
 
 ## Autostart
 exec --no-startup-id dunst
@@ -97,7 +94,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'paradise'
-    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema icon-theme 'Papirus'
     gsettings set $gnome-schema font-name 'Inter 10.5'
     gsettings set $gnome-schema document-font-name 'Inter 10.5'
     gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Font 11'
@@ -110,19 +107,19 @@ exec_always {
 font pango: Inter:style=Regular 11:
 
 ## Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/38.png fill
+output * bg /home/am/Pictures/Wallpapers/07.png fill
 
 ## Brightness configuration
 bindsym XF86MonBrightnessUp exec brightnessctl set +5% | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
 
 ## Idle configuration
-exec swayidle -w \
-timeout 300 'swaylock -f' \
-timeout 600 'swaymsg "output * dpms off"' \
-resume 'swaymsg "output * dpms on"' \
-before-sleep 'playerctl pause'\
-before-sleep 'swaylock -f'
+	exec swayidle -w \
+	  	timeout 300 'swaylock -f' \
+	  	timeout 600 'swaymsg "output * dpms off"' \
+	  		resume 'swaymsg "output * dpms on"' \
+	    before-sleep 'playerctl pause' \
+	  	before-sleep 'swaylock -f'
 
 # Enables inhibit_idle when playing audio
 exec sway-audio-idle-inhibit
@@ -137,14 +134,16 @@ for_window [app_id="mpv"] exec $next-workspace-move
 for_window [app_id="zathura"] exec $next-workspace-move
 for_window [class="Code"] move container to workspace number 3; workspace 3
 
-
 ## Floating windows
+for_window [app_id="io.bassi.Amberol"] floating enable
 for_window [app_id="theme"] floating enable
 for_window [app_id="cmus"] floating enable
 for_window [app_id="nmtui"] floating enable
+for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [app_id="telegramdesktop"] floating enable
 for_window [app_id="cmus"] floating enable
-for_window [app_id="bluetooth"] floating enable
-# for_window [app_id="Alacritty"] floating enable
+for_window [app_id="org.gnome.Nautilus"] floating enable
+for_window [class="feh"] floating enable
 
 
 ## Keys Configuration
@@ -181,14 +180,14 @@ bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 
 # Start code
-bindsym $mod+c exec $code
+bindsym $mod+v exec $code
 
 # Launch Files
-bindsym $mod+e exec $files
+bindsym $mod+f exec $files
 
 # Launch browser
-bindsym $mod+x exec $profile1
-bindsym $mod+z exec $profile2
+bindsym $mod+x exec $firefox
+bindsym $mod+c exec $chrome
 
 # Launch Telegram
 bindsym $mod+t exec $telegram
@@ -206,7 +205,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m
 
 # Connect to wifi
-bindsym $mod+n exec $connect
+bindsym $mod+n exec $nmtui
 
 # Exec bluetooth script
 bindsym $mod+b exec $bt
@@ -215,7 +214,7 @@ bindsym $mod+b exec $bt
 bindsym $mod+y exec $colors
 
 # Launch CMUS
-bindsym $mod+w exec $music
+bindsym $mod+m exec $music
 
 # Multimedia Keys
 bindsym XF86AudioMute exec pulsemixer --toggle-mute --get-mute | ~/.config/sway/scripts/notify.sh muted
@@ -232,11 +231,10 @@ bindsym Mod1+space exec $pause
 
 
 ## Screenshot:
-
 bindsym Print exec grim ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
 bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
 bindsym Ctrl+Print exec grim - | wl-copy && notify-send "Screenshot copied to Clipboard!"
-bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && notify-send "Screenshot captured!"
+bindsym Ctrl+Shift+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot copied to Clipboard!"
 
 ## Moving around:
 
@@ -272,11 +270,6 @@ bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
 bindsym $mod+4 workspace number 4
 bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
-bindsym $mod+7 workspace number 7
-bindsym $mod+8 workspace number 8
-bindsym $mod+9 workspace number 9
-bindsym $mod+0 workspace number 10
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
@@ -284,11 +277,6 @@ bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
 bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10
 
 # Move windows to next workspace
 bindsym Alt+j move container to workspace prev; workspace prev
@@ -308,8 +296,8 @@ bindsym $mod+tab workspace next_on_output
 # Cycle through workspaces
 bindsym Alt+tab workspace back_and_forth
 
-## Scratchpad:
 
+## Scratchpad:
 # Move the currently focused window to the scratchpad
 bindsym $mod+Shift+s move scratchpad
 
@@ -319,7 +307,7 @@ bindsym $mod+s scratchpad show
 ## Layout stuff:
 
 # Make the current focus fullscreen
-bindsym $mod+f fullscreen
+bindsym $mod+shift+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
@@ -333,23 +321,7 @@ bindsym $mod+a focus parent
 # Switch between layouts
 bindsym $mod+Shift+x layout toggle split
 
-## Resizing containers:
-
-mode "resize" {
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
-    
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym Ctrl+Shift+r mode "resize"
-
-
 ## Status Bar:
-
 bar {
     swaybar_command waybar
 }
