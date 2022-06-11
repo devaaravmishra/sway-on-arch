@@ -9,7 +9,7 @@
   frame_width = 0
   separator_height = 2
   sort = no
-  font = Jetbrains Mono 10
+  font = Jetbrains Mono 9
   markup = full
   format = "<b>%s</b>\n%b"
   alignment = left
@@ -30,8 +30,8 @@
   class = Dunst
   corner_radius = 6
 
-  mouse_left_click = close_current
-  mouse_middle_click = do_action
+  mouse_left_click = do_action
+  mouse_middle_click = close_current
   mouse_right_click = close_all
 
   progress_bar = true  
@@ -44,57 +44,20 @@
   text_icon_padding = 0
   sort = yes
 
-
-## Basic ##
-# frame_color = "#96CDFB"
-# separator_color= "#96CDFB"
-# [urgency_low]
-    # background = "#2c2c2c"
-    # foreground = "#D9E0EE"
-# 
-# [urgency_normal]
-    # background = "#2c2c2c"
-    # foreground = "#D9E0EE"
-# 
-# [urgency_critical]
-    # background = "#2c2c2c"
-    # foreground = "#D9E0EE"
-
-
-## Nord ##
-frame_color = "#E5E9F0"
-separator_color = "#E5E9F0"
-highlight = "#81a1c1"
+frame_color = "#151515"
+separator_color = "#151515"
 
 [urgency_low]
-    msg_urgency = low
-    background = "#3B4252"
-    foreground = "#4C566A"
+  background = "#8C977D"
+  foreground = "#151515"
+  timeout = 5
 
 [urgency_normal]
-    msg_urgency = normal
-    background = "#434C5E"
-    foreground = "#E5E9F0"
+  background = "#151515"
+  foreground = "#E8E3E3"
+  timeout = 10
 
 [urgency_critical]
-    msg_urgency = critical
-    background = "#88C0D0"
-    foreground = "#ECEFF4"
-
-
-## Catppuccin
-# frame_color = "#96CDFB"
-# separator_color= frame
-# 
-# [urgency_low]
-# background = "#1E1E2E"
-# foreground = "#D9E0EE"
-# 
-# [urgency_normal]
-# background = "#1E1E2E"
-# foreground = "#D9E0EE"
-# 
-# [urgency_critical]
-# background = "#1E1E2E"
-# foreground = "#D9E0EE"
-# frame_color = "#F8BD96"
+  background = "#B66467"
+  foreground = "#151515"
+  timeout = 20
