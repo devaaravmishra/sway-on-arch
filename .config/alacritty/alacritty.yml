@@ -1,182 +1,166 @@
 ## Alacritty, the GPU enhanced terminal emulator.
 
 env:
-  TERM: xterm-256color
-
+    TERM: xterm-256color
 
 font:
-  normal:
-    family: JetBrainsMono Nerd Font
-    style: Regular
+    normal:
+        family: JetBrainsMono Nerd Font
+        style: Regular
 
-  bold:
-    family: JetBrainsMono Nerd Font
-    style: Bold
+    bold:
+        family: JetBrainsMono Nerd Font
+        style: Bold
 
-  italic:
-    family: JetBrainsMono Nerd Font
-    
-    style: Italic
+    italic:
+        family: JetBrainsMono Nerd Font
 
-  bold_italic:
-    family: JetBrainsMono Nerd Font
-    style: Bold Italic
+        style: Italic
 
-  size: 12.0
+    bold_italic:
+        family: JetBrainsMono Nerd Font
+        style: Bold Italic
 
-  offset:
-    x: 0
-    y: 0
+    size: 12.0
 
-  glyph_offset:
-    x: 0
-    y: 0
+    offset:
+        x: 0
+        y: 0
 
+    glyph_offset:
+        x: 0
+        y: 0
 
 ### Color Schemes ###
 schemes:
+    basic: &basic
+        primary:
+            background: "#151515"
+            foreground: "#ffffff"
 
-  basic: &basic
-    primary:
-     background: '0x201c1c'
-     foreground: '0xffffff'
+        cursor:
+            text: "#ffffff"
+            cursor: "#ffffff"
 
-    cursor:
-     text: '0xffffff'
-     cursor: '0xffffff' 
+        normal:
+            black: "#3f3f3f"
+            red: "#EF5350"
+            green: "#00E676"
+            yellow: "#ffdf00"
+            blue: "#00B0FF"
+            magenta: "#EC407A"
+            cyan: "#00E5FF"
+            white: "#eaeaea"
 
-    normal:
-     black:   '0x3f3f3f'
-     red:     '0xff0883'
-     green:   '0x83ff08'
-     yellow:  '0xffdf00'
-     blue:    '0x00b7eb'
-     magenta: '0xA782EC'
-     cyan:    '0x08ff83'
-     white:   '0xbebebe'
-      
-    bright:
-     black:   '0x474747'
-     red:     '0xff1e8e'
-     green:   '0x8eff1e'
-     yellow:  '0xf1fa8c'
-     blue:    '0x00ffff'
-     magenta: '0xadc1ff'
-     cyan:    '0x1eff8e'
-     white:   '0xc4c4c4'
- 
-     
-  palenight: &palenight
-    primary:
-     background: '0x292d3e'
-     foreground: '0x959dcb'
+        bright:
+            black: "#474747"
+            red: "#EF5350"
+            green: "#00E676"
+            yellow: "#ffdf00"
+            blue: "#00B0FF"
+            magenta: "#EC407A"
+            cyan: "#00E5FF"
+            white: "#eaeaea"
 
-    cursor:
-     text: '0x292d3e'
-     cursor: '0x959dcb'
+    palenight: &palenight
+        primary:
+            background: "#151515"
+            foreground: "#d8dee9"
 
-    normal:
-     black:   '0x292d3e'
-     red:     '0xf07178'
-     green:   '0xc3e88d'
-     yellow:  '0xffcb6b'
-     blue:    '0x82aaff'
-     magenta: '0xc792ea'
-     cyan:    '0x89ddff'
-     white:   '0x959dcb'
+        normal:
+            black: "#292d3e"
+            red: "#f07178"
+            green: "#c3e88d"
+            yellow: "#ffcb6b"
+            blue: "#82aaff"
+            magenta: "#c792ea"
+            cyan: "#89ddff"
+            white: "#ffffff"
 
-    bright:
-     black:   '0x676e95'
-     red:     '0xf07178'
-     green:   '0xc3e88d'
-     yellow:  '0xffcb6b'
-     blue:    '0x82aaff'
-     magenta: '0xc792ea'
-     cyan:    '0x89ddff'
-     white:   '0xffffff'      
+        bright:
+            black: "#676e95"
+            red: "#f07178"
+            green: "#c3e88d"
+            yellow: "#ffcb6b"
+            blue: "#82aaff"
+            magenta: "#c792ea"
+            cyan: "#89ddff"
+            white: "#ffffff"
 
-  everforest: &everforest
-    primary:
-     background: '#2b3339'
-     foreground: '#d3c6aa'
+    everforest: &everforest
+        primary:
+            background: "#151515"
+            foreground: "#d8dee9"
 
-    normal:
-     black:   '#4b565c'
-     red:     '#e67e80'
-     green:   '#a7c080'
-     yellow:  '#dbbc7f'
-     blue:    '#7fbbb3'
-     magenta: '#d699b6'
-     cyan:    '#83c092'
-     white:   '#d3c6aa'
+        normal:
+            black: "#4b565c"
+            red: "#e67e80"
+            green: "#a7c080"
+            yellow: "#dbbc7f"
+            blue: "#7fbbb3"
+            magenta: "#d699b6"
+            cyan: "#83c092"
+            white: "#d3c6aa"
 
-    bright:
-     black:   '#4b565c'
-     red:     '#e67e80'
-     green:   '#a7c080'
-     yellow:  '#dbbc7f'
-     blue:    '#7fbbb3'
-     magenta: '#d699b6'
-     cyan:    '#83c092'
-     white:   '#d3c6aa'
+        bright:
+            black: "#4b565c"
+            red: "#e67e80"
+            green: "#a7c080"
+            yellow: "#dbbc7f"
+            blue: "#7fbbb3"
+            magenta: "#d699b6"
+            cyan: "#83c092"
+            white: "#d3c6aa"
 
-  nord: &nord
-    primary:
-     background: '#2e3440'
-     foreground: '#d8dee9'
+    nord: &nord
+        primary:
+            background: "#151515"
+            foreground: "#d8dee9"
+            
+        normal:
+            black: "#3b4252"
+            red: "#bf616a"
+            green: "#a3be8c"
+            yellow: "#ebcb8b"
+            blue: "#81a1c1"
+            magenta: "#b48ead"
+            cyan: "#88c0d0"
+            white: "#e5e9f0"
 
-    cursor:
-     text:    '#2e3440'
-     cursor:  '#d8dee9'
+        bright:
+            black: "#4c566a"
+            red: "#bf616a"
+            green: "#a3be8c"
+            yellow: "#ebcb8b"
+            blue: "#81a1c1"
+            magenta: "#b48ead"
+            cyan: "#8fbcbb"
+            white: "#eceff4"
 
-    normal:
-     black:   '#3b4252'
-     red:     '#bf616a'
-     green:   '#a3be8c'
-     yellow:  '#ebcb8b'
-     blue:    '#81a1c1'
-     magenta: '#b48ead'
-     cyan:    '#88c0d0'
-     white:   '#e5e9f0'
+    catppuccin: &catppuccin
+        primary:
+            background: "#151515"
+            foreground: "#D9E0EE"
 
-    bright:
-      black:   '#4c566a'
-      red:     '#bf616a'
-      green:   '#a3be8c'
-      yellow:  '#ebcb8b'
-      blue:    '#81a1c1'
-      magenta: '#b48ead'
-      cyan:    '#8fbcbb'
-      white:   '#eceff4'
+        normal:
+            black: "#6E6C7E"
+            red: "#F28FAD"
+            green: "#ABE9B3"
+            yellow: "#FAE3B0"
+            blue: "#96CDFB"
+            magenta: "#F5C2E7"
+            cyan: "#89DCEB"
+            white: "#D9E0EE"
 
-  catppuccin: &catppuccin
-   primary:
-     background: '0x1E1D2F'
-     foreground: '0xD9E0EE'
-
-   cursor:
-     text: '0x1E1D2F'
-     cursor: '0xF5E0DC'
-
-   normal:
-     black:   '0x6E6C7E'
-     red:     '0xF28FAD'
-     green:   '0xABE9B3'
-     yellow:  '0xFAE3B0'
-     blue:    '0x96CDFB'
-     magenta: '0xF5C2E7'
-     cyan:    '0x89DCEB'
-     white:   '0xD9E0EE'
-
-   bright:
-     black:   '0x988BA2'
-     red:     '0xF28FAD'
-     green:   '0xABE9B3'
-     yellow:  '0xFAE3B0'
-     blue:    '0x96CDFB'
-     magenta: '0xF5C2E7'
-     cyan:    '0x89DCEB'
-     white:   '0xD9E0EE' 
+        bright:
+            black: "#988BA2"
+            red: "#F28FAD"
+            green: "#ABE9B3"
+            yellow: "#FAE3B0"
+            blue: "#96CDFB"
+            magenta: "#F5C2E7"
+            cyan: "#89DCEB"
+            white: "#D9E0EE"
 
 # Available themes are:
 # *Basic
@@ -184,14 +168,13 @@ schemes:
 # *PaleNight
 # *Everforest
 # *Nord
-colors: *nord
-
+colors: *palenight
 
 cursor:
-  style:
-    shape: Block
-    blinking: on
-    blinking_interval: 750
+    style:
+        shape: Block
+        blinking: on
+        blinking_interval: 750
 
 import:
-  - ~/.config/alacritty/paradise.yml
+    - ~/.config/alacritty/paradise.yml
