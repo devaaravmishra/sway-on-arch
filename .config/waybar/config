@@ -3,6 +3,7 @@
 	"position": "top",
 	"modules-left": [
 		"sway/workspaces",
+		"sway/window",
 		"custom/media",
 		"custom/spotify"
 	],
@@ -11,12 +12,22 @@
 	],
 	"modules-right": [
 		"tray",
+		"custom/scratchpad_indicator",
+		"network",
 		"memory",
+		"bluetooth",
 		"pulseaudio",
-		"battery",
-		"network"
+		"backlight",
+		"battery"
 	],
 	"sway/workspaces": {
+		"persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": []
+		},
 		"disable-scroll": true,
 		"all-outputs": true,
 		"format": "{icon}",
@@ -24,6 +35,20 @@
 			"urgent": "",
 			"focused": "",
 			"default": ""
+		}
+	},
+	"sway/window": {
+		"format": "{}",
+		"max-length": 25,
+		"rewrite": {
+			"Mozilla Firefox": " ",
+			"Visual Studio Code": "﬏ ",
+			"Alacritty": " ",
+			"Telegram": " ",
+			"(.*) — Mozilla Firefox": "  $1",
+			"(.*) - Google Chrome": "  $1",
+			"(.*) - mpv": "  $1",
+			"(.*) - Visual Studio Code": "﬏  $1"
 		}
 	},
 	"memory": {
@@ -36,7 +61,8 @@
 	},
 	"tray": {
 		"spacing": 5,
-		"icon-size": 14
+		"icon-size": 14,
+		"show-passive-items": true
 	},
 	"clock": {
 		"format": "{:%I:%M}",
@@ -60,13 +86,33 @@
 			""
 		]
 	},
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			""
+		]
+	},
+	"bluetooth": {
+		"format": "<span font='9'></span>",
+		"format-off": "",
+		"format-connected": "<span font='9'></span> {device_battery_percentage}%",
+		"tooltip-format": "{status}\n{num_connections} connected",
+		"tooltip-format-connected": "{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias} {device_battery_percentage}%",
+		"on-click": "bluetoothctl power off",
+		"on-click-right": "bluetoothctl power on"
+	},
 	"network": {
-		"format-wifi": "",
-		"format-ethernet": "",
-		"format-linked": "{ifname} (No IP) ",
+		"format-wifi": " {essid}",
+		"interval": 1,
+		"format-ethernet": " {essid}",
 		"format-disconnected": "",
 		"family": "ipv4",
-		"tooltip-format-wifi": "SSID: {essid}\nStrength: {signalStrength}%\n {bandwidthUpBits}  {bandwidthDownBits}",
+		"tooltip-format-wifi": "SSID: {essid}\n {bandwidthUpBytes}  {bandwidthDownBytes}",
 		"tooltip-format-ethernet": "SSID: {essid}\nIP: {ipaddr}"
 	},
 	"pulseaudio": {
@@ -87,6 +133,13 @@
 			]
 		}
 	},
+	"custom/scratchpad_indicator": {
+		"interval": 1,
+		"exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
+		"format": "<span font='11'>缾</span> {}",
+		"on-click": "swaymsg 'scratchpad show'",
+		"on-click-right": "swaymsg 'move scratchpad'"
+	},
 	"custom/media": {
 		"format": "{icon}{}",
 		"format-icons": {
@@ -94,8 +147,19 @@
 			"Playing": ""
 		},
 		"return-type": "json",
-		"max-length": 30,
+		"max-length": 25,
 		"on-click": "playerctl play-pause",
-		"exec": "playerctl --ignore-player=spotify metadata --format '{\"text\": \" {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+		"exec": "playerctl --ignore-player=spotify metadata --format '{\"text\": \" {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+	},
+	"custom/spotify": {
+		"format": "{icon}{}",
+		"format-icons": {
+			"Paused": "<span font='12'> </span>",
+			"Playing": "<span font='12'> </span>"
+		},
+		"return-type": "json",
+		"max-length": 25,
+		"on-click": "playerctl play-pause",
+		"exec": "playerctl --player=spotify metadata --format '{\"text\": \" {{artist}} • {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
 	}
 }

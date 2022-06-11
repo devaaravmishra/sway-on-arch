@@ -1,4 +1,4 @@
-@import "colorschemes/nord.css"; 
+@import "colorschemes/palenight.css"; 
 
 @keyframes blink-warning {
     70% {
@@ -23,7 +23,7 @@
 * {
     border: none;
     min-height: 0;
-    font-weight: bold;
+    font-weight: bolder;
     padding: 1px 2px 2px 2px; 
     font-family: "JetbrainsMono Nerd Font";
     font-size: 13px; 
@@ -41,6 +41,10 @@ window#waybar.hidden {
 	opacity: 0.2;
 }
 
+#waybar.empty #window{
+	padding: 0 0 0 0;
+}
+
 /* Each module */
 
 #battery,
@@ -48,6 +52,9 @@ window#waybar.hidden {
 #custom-media,
 #custom-spotify,
 #memory,
+#custom-scratchpad_indicator,
+#bluetooth,
+#backlight,
 #network,
 #pulseaudio,
 #window,
@@ -97,9 +104,18 @@ window#waybar.hidden {
     color: @base03;
 }
 
+#bluetooth{
+	color: @base05;
+}
+
+#backlight{
+	color: @base06;	
+}
+
 tooltip { 
 	border-radius: 5px;
-	background-color: #262626; 
+	background-color: @base04;
+	color: @base00; 
 }
  
 tooltip label {
@@ -122,9 +138,12 @@ tooltip label {
     color: @base09;
 }
 
+#workspaces button.persistent{
+	color: rgba(224, 224, 224, 0.5);
+}
+
 #network {
     color:@base02;
-    font-size: 14px;
 }
 
 #battery {
@@ -146,6 +165,10 @@ tooltip label {
 
 #custom-media{
     color: @base0E;
+}
+
+#custom-scratchpad_indicator{
+	color: @base07;	
 }
 
 #clock{
