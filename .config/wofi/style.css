@@ -1,25 +1,21 @@
 window {
-	background-color: #2E3440;
-	color: #E5E9F0;
+	background-color: #151515;
+	color: #fff;
 	border-radius: 10px;
-	border: 2px solid #81a1c1;
+	font-family: "Inter Medium";
 }
 
 #input {
 	margin: 5px;
+	border: none; 
 	background: none;
 	font-size: 16px;
-	color: #D8DEE9;
-}
-
-#input image{
-	color: #ffffff;
 }
 
 #entry:selected {
 	border-radius: 5px;
 	border: none;
-	background-color: #434C5E;
+	background-color: #81a1c1;
 }
 
 #inner-box {
@@ -38,7 +34,7 @@ window {
 }
 
 #text:selected {
-	color: #81a1c1;
+	color: #212121;
 }
 
 #img {
