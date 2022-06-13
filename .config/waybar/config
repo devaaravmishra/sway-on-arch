@@ -1,24 +1,25 @@
 {
+	"height": 30,
 	"layer": "top",
 	"position": "top",
 	"modules-left": [
-		"sway/workspaces",
 		"sway/window",
 		"custom/media",
 		"custom/spotify"
 	],
 	"modules-center": [
-		"clock"
+        "sway/workspaces",
 	],
 	"modules-right": [
-		"tray",
 		"custom/scratchpad_indicator",
+		"tray",
 		"network",
 		"memory",
 		"bluetooth",
 		"pulseaudio",
 		"backlight",
-		"battery"
+		"battery",
+		"clock",
 	],
 	"sway/workspaces": {
 		"persistent_workspaces": {
@@ -33,35 +34,32 @@
 		"format": "{icon}",
 		"format-icons": {
 			"urgent": "",
-			"focused": "",
-			"default": ""
+			"focused": "󰮯",
+			"default": ""
 		}
 	},
 	"sway/window": {
 		"format": "{}",
 		"max-length": 25,
 		"rewrite": {
-			"Mozilla Firefox": " ",
-			"Visual Studio Code": "﬏ ",
-			"Alacritty": " ",
-			"Telegram": " ",
+			"Mozilla Firefox": " Firefox",
+			"Visual Studio Code": "﬏ VS Code",
+			"Telegram (.*)": " $1",
+			"Alacritty": " Terminal",
 			"(.*) — Mozilla Firefox": "  $1",
 			"(.*) - Google Chrome": "  $1",
 			"(.*) - mpv": "  $1",
 			"(.*) - Visual Studio Code": "﬏  $1"
-		}
+		},
 	},
 	"memory": {
-		"format": "<span font='10'>{icon} </span>{used:0.1f}G",
-		"format-icons": {
-			"default": "﬙"
-		},
+		"format": "<span font='10'>﬙</span>{used: 0.1f}G",
 		"interval": 1,
 		"tooltip-format": "Free: {avail:0.1f}G"
 	},
 	"tray": {
 		"spacing": 5,
-		"icon-size": 14,
+		"icon-size": 15,
 		"show-passive-items": true
 	},
 	"clock": {
@@ -74,7 +72,7 @@
 			"warning": 30,
 			"critical": 15
 		},
-		"format": "<span font='10'>{icon}</span> {capacity}%",
+		"format": "{icon} {capacity}%",
 		"format-charging": " {capacity}%",
 		"format-plugged": " {capacity}%",
 		"format-alt": "{time} {icon}",
@@ -96,9 +94,9 @@
 		]
 	},
 	"bluetooth": {
-		"format": "<span font='9'></span>",
-		"format-off": "",
-		"format-connected": "<span font='9'></span> {device_battery_percentage}%",
+		"format": "<span font='10'></span>",
+		"format-off": "<span font='10'></span>",
+		"format-connected": " {device_battery_percentage}%",
 		"tooltip-format": "{status}\n{num_connections} connected",
 		"tooltip-format-connected": "{device_enumerate}",
 		"tooltip-format-enumerate-connected": "{device_alias}",
@@ -110,7 +108,7 @@
 		"format-wifi": " {essid}",
 		"interval": 1,
 		"format-ethernet": " {essid}",
-		"format-disconnected": "",
+		"format-disconnected": "􀙈",
 		"family": "ipv4",
 		"tooltip-format-wifi": "SSID: {essid}\n {bandwidthUpBytes}  {bandwidthDownBytes}",
 		"tooltip-format-ethernet": "SSID: {essid}\nIP: {ipaddr}"
@@ -119,7 +117,7 @@
 		"format": "<span font='10'>{icon}</span> {volume}%",
 		"format-bluetooth": " {volume}%",
 		"format-bluetooth-muted": "{format_source}",
-		"format-muted": "{format_source}",
+		"format-muted": "<span font='11'>{format_source}</span>",
 		"format-source": "",
 		"format-source-muted": "",
 		"max-length": 10,
@@ -134,12 +132,12 @@
 		}
 	},
 	"custom/scratchpad_indicator": {
-		"interval": 1,
-		"exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
-		"format": "<span font='11'>缾</span> {}",
-		"on-click": "swaymsg 'scratchpad show'",
-		"on-click-right": "swaymsg 'move scratchpad'"
-	},
+	    		"interval": 1,
+	    		"exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
+	    		"format": "  ",
+	    		"on-click": "swaymsg 'scratchpad show'",
+	    		"on-click-right": "swaymsg 'move scratchpad'"
+	    	},
 	"custom/media": {
 		"format": "{icon}{}",
 		"format-icons": {
@@ -154,8 +152,8 @@
 	"custom/spotify": {
 		"format": "{icon}{}",
 		"format-icons": {
-			"Paused": "<span font='12'> </span>",
-			"Playing": "<span font='12'> </span>"
+			"Paused": "<span font='11'> </span>",
+			"Playing": "<span font='11'> </span>"
 		},
 		"return-type": "json",
 		"max-length": 25,
@@ -163,3 +161,4 @@
 		"exec": "playerctl --player=spotify metadata --format '{\"text\": \" {{artist}} • {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
 	}
 }
+
