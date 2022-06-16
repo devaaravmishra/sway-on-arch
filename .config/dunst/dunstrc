@@ -1,15 +1,18 @@
 [global]
   monitor = 0
   follow = mouse
-  shrink = yes
+  shrink = no
   padding = 20
   horizontal_padding = 20
   origin = bottom-right
 
   frame_width = 0
-  separator_height = 2
+  separator_height = 0
+  frame_color = "#151515"
+  separator_color = "#151515"
+
   sort = no
-  font = Jetbrains Mono 9
+  font = JetBrains Mono 10
   markup = full
   format = "<b>%s</b>\n%b"
   alignment = left
@@ -18,34 +21,19 @@
   ignore_newline = no
   stack_duplicates = true
   hide_duplicate_count = no
-  show_indicators = no
-  line_height=5
+  show_indicators = yes
 
-  icon_path = .config/dunst/
   icon_position = left
   max_icon_size= 60
   sticky_history = no
   history_length = 6
   title = Dunst
   class = Dunst
-  corner_radius = 6
+  corner_radius = 0
 
-  mouse_left_click = do_action
-  mouse_middle_click = close_current
+  mouse_left_click = close_current
+  mouse_middle_click = do_action
   mouse_right_click = close_all
-
-  progress_bar = true  
-  progress_bar_height = 5
-  progress_bar_frame_width = 0  
-  progress_bar_min_width = 150
-  progress_bar_max_width = 300
-  indicate_hidden = yes
-  separator_height = 0
-  text_icon_padding = 0
-  sort = yes
-
-frame_color = "#151515"
-separator_color = "#151515"
 
 [urgency_low]
   background = "#8C977D"
