@@ -1,4 +1,4 @@
-include ~/.config/sway/colorschemes/nord.config
+include ~/.config/sway/colorschemes/palenight.config
 
 #### VARIABLES ####
 
@@ -94,7 +94,7 @@ set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
     gsettings set $gnome-schema gtk-theme 'paradise'
-    gsettings set $gnome-schema icon-theme 'Papirus'
+    gsettings set $gnome-schema icon-theme 'Papirus-Dark'
     gsettings set $gnome-schema font-name 'Inter 10.5'
     gsettings set $gnome-schema document-font-name 'Inter 10.5'
     gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Font 11'
@@ -107,7 +107,7 @@ exec_always {
 font pango: Inter:style=Regular 11:
 
 ## Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/07.png fill
+output * bg /home/am/Pictures/Wallpapers/33.jpg fill
 
 ## Brightness configuration
 bindsym XF86MonBrightnessUp exec brightnessctl set +5% | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
@@ -135,15 +135,13 @@ for_window [app_id="zathura"] exec $next-workspace-move
 for_window [class="Code"] move container to workspace number 3; workspace 3
 
 ## Floating windows
-for_window [app_id="io.bassi.Amberol"] floating enable
-for_window [app_id="theme"] floating enable
 for_window [app_id="cmus"] floating enable
 for_window [app_id="nmtui"] floating enable
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [app_id="telegramdesktop"] floating enable
-for_window [app_id="cmus"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [class="feh"] floating enable
+for_window [app_id="theme"] floating enable
 
 
 ## Keys Configuration
