@@ -23,6 +23,7 @@
   hide_duplicate_count = no
   show_indicators = yes
 
+  icon_path = .config/dunst/
   icon_position = left
   max_icon_size= 60
   sticky_history = no
