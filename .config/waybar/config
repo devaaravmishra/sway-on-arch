@@ -11,7 +11,7 @@
         "sway/workspaces",
 	],
 	"modules-right": [
-		"custom/scratchpad_indicator",
+		"custom/scratchpad-indicator",
 		"tray",
 		"network",
 		"memory",
@@ -43,17 +43,17 @@
 		"max-length": 25,
 		"rewrite": {
 			"Mozilla Firefox": " Firefox",
-			"Visual Studio Code": "﬏ VS Code",
+			"Visual Studio Code": "󰨞 VS Code",
 			"Telegram (.*)": " $1",
 			"Alacritty": " Terminal",
 			"(.*) — Mozilla Firefox": "  $1",
 			"(.*) - Google Chrome": "  $1",
-			"(.*) - mpv": "  $1",
-			"(.*) - Visual Studio Code": "﬏  $1"
+			"(.*) - mpv": "󰕧  $1",
+			"(.*) - Visual Studio Code": "󰨞  $1"
 		},
 	},
 	"memory": {
-		"format": "<span font='10'>﬙</span>{used: 0.1f}G",
+		"format": "﬙{used: 0.1f}G",
 		"interval": 1,
 		"tooltip-format": "Free: {avail:0.1f}G"
 	},
@@ -94,8 +94,8 @@
 		]
 	},
 	"bluetooth": {
-		"format": "<span font='10'></span>",
-		"format-off": "<span font='10'></span>",
+		"format": "",
+		"format-off": "",
 		"format-connected": " {device_battery_percentage}%",
 		"tooltip-format": "{status}\n{num_connections} connected",
 		"tooltip-format-connected": "{device_enumerate}",
@@ -105,7 +105,7 @@
 		"on-click-right": "bluetoothctl power on"
 	},
 	"network": {
-		"format-wifi": " {essid}",
+		"format-wifi": "󰑫 {essid}",
 		"interval": 1,
 		"format-ethernet": " {essid}",
 		"format-disconnected": "􀙈",
@@ -114,10 +114,10 @@
 		"tooltip-format-ethernet": "SSID: {essid}\nIP: {ipaddr}"
 	},
 	"pulseaudio": {
-		"format": "<span font='10'>{icon}</span> {volume}%",
+		"format": "{icon} {volume}%",
 		"format-bluetooth": " {volume}%",
 		"format-bluetooth-muted": "{format_source}",
-		"format-muted": "<span font='11'>{format_source}</span>",
+		"format-muted": "{format_source}",
 		"format-source": "",
 		"format-source-muted": "",
 		"max-length": 10,
@@ -131,13 +131,14 @@
 			]
 		}
 	},
-	"custom/scratchpad_indicator": {
-	    		"interval": 1,
-	    		"exec": "swaymsg -t get_tree | jq 'recurse(.nodes[]) | first(select(.name==\"__i3_scratch\")) | .floating_nodes | length | select(. >= 1)'",
-	    		"format": "  ",
-	    		"on-click": "swaymsg 'scratchpad show'",
-	    		"on-click-right": "swaymsg 'move scratchpad'"
-	    	},
+	"custom/scratchpad-indicator": {
+	   "interval": 3,
+	   "return-type": "json",
+	   "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class)\") | join(\"\\n\") } else empty end'",
+	   "format": " {}",
+	   "on-click": "exec swaymsg 'scratchpad show'",
+	   "on-click-right": "exec swaymsg 'move scratchpad'"
+	    },
 	"custom/media": {
 		"format": "{icon}{}",
 		"format-icons": {
@@ -152,8 +153,8 @@
 	"custom/spotify": {
 		"format": "{icon}{}",
 		"format-icons": {
-			"Paused": "<span font='11'> </span>",
-			"Playing": "<span font='11'> </span>"
+			"Paused": "",
+			"Playing": ""
 		},
 		"return-type": "json",
 		"max-length": 25,
