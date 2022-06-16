@@ -1,40 +1,27 @@
 @import "colorschemes/palenight.css"; 
 
-@keyframes blink-warning {
-    70% {
-        color: @base08;
-    }
-
-    to {
-        color: @base08;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-      color: @base07;
-    }
-
-    to {
-        color: @base07;
-    }
-}
-
 * {
     border: none;
     min-height: 0;
-    font-weight: bolder;
-    padding: 1px 2px 2px 2px; 
-    font-family: "JetbrainsMono Nerd Font";
-    font-size: 13px; 
+    font-weight: bold;
+    font-family: "Material-Design-Icons, Inter Nerd Font";
+    font-size: 13px;
 }
 
 /* The whole bar */
 window#waybar {
 	background-color: transparent;
 	color: @base07;
-	transition-property: background-color;
 	transition-duration: 0.5s;
+  	transition-duration: .5s;
+
+}
+
+.modules-left, .modules-right, .modules-center{
+	background-color: #1e222a;
+ 	border: 3px solid rgba(0, 0, 0, 0);
+ 	border-radius: 20px;
+ 	background-clip: padding-box;
 }
 
 window#waybar.hidden {
@@ -42,7 +29,12 @@ window#waybar.hidden {
 }
 
 #waybar.empty #window{
-	padding: 0 0 0 0;
+	padding: 0;
+	margin: 0;
+}
+
+#waybar.hidden #window{
+	padding: 0;
 }
 
 /* Each module */
@@ -52,15 +44,17 @@ window#waybar.hidden {
 #custom-media,
 #custom-spotify,
 #memory,
-#custom-scratchpad_indicator,
+#custom-scratchpad-indicator,
 #bluetooth,
 #backlight,
 #network,
 #pulseaudio,
 #window,
 #tray {
-    padding-left: 0.4em;
-    padding-right: 0.4em;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-right: 2px;
+    margin-left: 2px;
 }
 
 #memory{
@@ -126,7 +120,8 @@ tooltip label {
 
 #workspaces button {
     color: @base0B;
-    min-width: 25px;
+    padding: 0 4px;
+   	min-width: 20px;
 }
 
 #workspaces button.focused {
@@ -142,12 +137,16 @@ tooltip label {
 	color: rgba(224, 224, 224, 0.5);
 }
 
+#window {
+	padding: 0 5px;
+}
+
 #network {
     color:@base02;
 }
 
 #battery {
-    color:@base04;
+    color:@base02;
 }
 
 #network.format-disconnected{
@@ -167,7 +166,7 @@ tooltip label {
     color: @base0E;
 }
 
-#custom-scratchpad_indicator{
+#custom-scratchpad-indicator{
 	color: @base07;	
 }
 
@@ -182,7 +181,6 @@ tooltip label {
 #pulseaudio.muted {
     color: @base09;
     font-size: 14px;
-    margin-right: 0.4em;
 }
 
 #pulseaudio.source-muted {
@@ -197,4 +195,23 @@ tooltip label {
     -gtk-icon-effect: highlight;
 }
 
+@keyframes blink-warning {
+    70% {
+        color: @base08;
+    }
+
+    to {
+        color: @base08;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: @base07;
+    }
+
+    to {
+        color: @base07;
+    }
+}
 
