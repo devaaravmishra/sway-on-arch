@@ -87,7 +87,7 @@ xwayland enable
 exec --no-startup-id dunst
 
 ## Autotiling
-exec autotiling-rs
+exec autotiling
 
 ## GTK Settings
 set $gnome-schema org.gnome.desktop.interface
