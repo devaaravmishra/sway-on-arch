@@ -4,8 +4,7 @@ echo -e "\n======> Installing Sway-On-Arch.\n"
 
 
 # Copying config files to ~/.config/ dir
-cp -frv ../.config/ \
-${HOME}/
+cp -frv ../.config/* ${HOME}/.config/
 
 echo -e "\n======> Done Patching configs..."
 
