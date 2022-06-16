@@ -11,7 +11,6 @@ set $down j
 set $up k
 set $right l
 
-
 ## Applications
 
 # Terminal
@@ -35,9 +34,6 @@ set $menu exec wofi --show=drun --line=5 --width=600 --columns=2 --hide-scroll -
 
 # Power Menu (wofi)
 set $power "bash ~/.config/wofi/scripts/powermenu/powerctrl.sh"
-
-# Bluetooth script
-set $bt "bash ~/.config/wofi/scripts/bluetooth/bluetooth.sh"
 
 # Toggle Colorschemes
 set $colors alacritty --class 'theme' -e  ~/.config/sway/scripts/theme-switcher.sh
@@ -100,14 +96,13 @@ exec_always {
     gsettings set $gnome-schema monospace-font-name 'Jetbrains Mono Nerd Font 11'
 }
 
-
 #### CONFIGURATION ####
 
 ## Font configuration
 font pango: Inter:style=Regular 11:
 
 ## Wallpaper configuration
-output * bg /home/am/Pictures/Wallpapers/33.jpg fill
+output * bg /home/am/Pictures/Wallpapers/42.jpg fill
 
 ## Brightness configuration
 bindsym XF86MonBrightnessUp exec brightnessctl set +5% | brightnessctl | cut -d ':' -f 2 | cut -d ' ' -f3 | grep -o '[0-9]\+' | ~/.config/sway/scripts/notify.sh brightness
@@ -204,9 +199,6 @@ bindsym $mod+Shift+e exec swaynag -t warning -m
 
 # Connect to wifi
 bindsym $mod+n exec $nmtui
-
-# Exec bluetooth script
-bindsym $mod+b exec $bt
 
 # Exec theme-swticher script
 bindsym $mod+y exec $colors
